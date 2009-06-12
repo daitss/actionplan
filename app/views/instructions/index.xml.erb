@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<premis xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+
+  <!-- determination of processing instructions event -->
+  <event>
+    <eventIdentifier>
+      <eventIdentifierType>Temporary Local</eventIdentifierType>
+      <eventIdentifierValue>1</eventIdentifierValue>
+    </eventIdentifier>
+    <eventType>Action Plan Determination</eventType>
+    <eventDateTime><%= Time.now %></eventDateTime>
+    <eventOutcomeInformation>
+      <eventOutcome>success</eventOutcome>
+			<eventOutcomeDetail>
+				<eventOutcomeDetailExtension>
+					<% @instructions.each do |ins| %>
+					<%= open_tag ins[:type] %>
+					
+					<% if ins[:transformation] %>
+  					<transformation><%= ins[:transformation] %></transformation>
+					<% elsif ins[:limitation] %>
+	  				<limitation><%= ins[:limitation] %></limitation>
+					<% end %>
+					
+					<%= close_tag ins[:type] %>
+					<% end %>
+				</eventOutcomeDetailExtension>
+			</eventOutcomeDetail>
+    </eventOutcomeInformation>
+    <linkingAgentIdentifier>
+      <linkingAgentIdentifierType>URI</linkingAgentIdentifierType>
+      <linkingAgentIdentifierValue>http://archive/action-plan</linkingAgentIdentifierValue>
+    </linkingAgentIdentifier>
+  </event>
+  
+  <!-- action plan service -->
+  <agent>
+    <agentIdentifier>
+      <agentIdentifierType>URI</agentIdentifierType>
+      <agentIdentifierValue>http://archive/action-plan</agentIdentifierValue>
+    </agentIdentifier>
+    <agentName>Action Plan Service</agentName>
+    <agentType>Web Service</agentType>
+  </agent>
+</premis>

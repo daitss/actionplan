@@ -1,0 +1,10 @@
+<h1>Actionplans</h1>
+
+<ul>
+  <% @action_plans.each do |p| %>
+  <li>
+    <% anchor = (p.format_version ? "#{p.format} (#{p.format_version})" : p.format) %>
+    <%= link_to anchor, url(:action_plan, :id => CGI::escape(p.format), :formatversion => p.format_version) %>
+  </li>
+  <% end %>
+</ul>

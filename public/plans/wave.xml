@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-plan format="WAVE">
+	<implementation-date>TBD</implementation-date>
+	<release-date>2004-03-29</release-date>
+	<revision-date>2009-07-02</revision-date>
+	<ingest-processing>
+		<identification>TBD</identification>
+		<validation>TBD</validation>
+		<characterization>TDB</characterization>
+		<migration>TBD</migration>
+		<normalization>
+			Each video/audio stream contained in the WAVE file will be normalized according to the Action 
+			Plan for FCLA Supported Video/Audio Stream Formats (“Audio Streams in WAVE files” section). 
+			If the audio stream encoding is not in the list of currently supported audio stream formats for 
+			WAVE files, the audio stream will not be normalized and the original WAVE file will be preserved 
+			as bit-level.
+			<transformation codec="LPCM" url="http://roadrunner.local:4567/transform/wave_norm"/>
+			<transformation codec="PCM" url="http://roadrunner.local:4567/transform/wave_norm"/>
+		</normalization>
+	</ingest-processing>
+	<significant-properties>
+		<content>TBD</content>
+		<context>TBD</context>
+		<behavior>TBD</behavior>
+		<structure>TBD</structure>
+		<appearance>TBD</appearance>
+	</significant-properties>
+	<long-term-strategy>
+		<original>
+			Migrate to newer WAVE versions or to an open, standardized and well supported audio file format 
+			that is to be a good successor for the WAVE file format.
+		</original>
+		<normalized>
+			Not applicable for  WAVE file format.   For the normalized audio stream formats, please see the 
+			Action Plan for  FCLA Supported Video/Audio Stream Formats. 
+		</normalized>
+	</long-term-strategy>
+	<short-term-actions>
+		<action>Please see the Action Plan for  FCLA Supported Video/Audio Stream Formats.</action>
+	</short-term-actions>
+</action-plan>

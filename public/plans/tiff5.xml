@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-plan format="TIFF" format-version="5.0">
+	<implementation-date>TBD</implementation-date>
+	<release-date>2003-1-31</release-date>
+	<revision-date>2009-04-01</revision-date>
+	<ingest-processing>
+		<identification>TBD</identification>
+		<validation>TBD</validation>
+		<characterization>TDB</characterization>
+		<migration>TBD</migration>
+		<normalization>TBD</normalization>
+	</ingest-processing>
+	<significant-properties>
+		<content>TBD</content>
+		<context>TBD</context>
+		<behavior>TBD</behavior>
+		<structure>TBD</structure>
+		<appearance>TBD</appearance>
+	</significant-properties>
+	<long-term-strategy>
+    <original>
+      See the long-term preservation strategy for TIFF 6.0 images. TIFF 5.0 images will be treated in 
+      the archive as if they were TIFF 6.0 images because of their similarity. 
+    </original>
+	</long-term-strategy>
+	<short-term-actions>
+		<action>TBD</action>
+	</short-term-actions>
+</action-plan>

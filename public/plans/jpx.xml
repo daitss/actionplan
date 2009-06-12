@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-plan format="JPX" format-version="1.0">
+	<implementation-date>TBD</implementation-date>
+	<release-date>2005-11-07</release-date>
+	<revision-date>2007-11-01</revision-date>
+	<ingest-processing>
+		<identification>TBD</identification>
+		<validation>TBD</validation>
+		<characterization>TDB</characterization>
+		<migration>TBD</migration>
+		<normalization>TBD</normalization>
+	</ingest-processing>
+	<significant-properties>
+		<content>TBD</content>
+		<context>TBD</context>
+		<behavior>TBD</behavior>
+		<structure>TBD</structure>
+		<appearance>TBD</appearance>
+	</significant-properties>
+	<long-term-strategy>
+		<original>
+	    Migrate to newer JPX versions or to a format that shares the essential and distinguishing characteristics of
+	    the JPX specification.
+		</original>
+	</long-term-strategy>
+	<short-term-actions>
+		<action>
+	    Recommend that JPX depositors validate their JPX files using JHOVE 
+	    (http://hul.harvard.edu/jhove/) or another JPX validator before depositing them for ingest into 
+	    the archive. Ideally depositors should validate their JPX files to test their JPX creation software 
+	    before choosing their software.			
+		</action>
+	</short-term-actions>
+</action-plan>
