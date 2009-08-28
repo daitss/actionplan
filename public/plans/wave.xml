@@ -14,8 +14,8 @@
 			If the audio stream encoding is not in the list of currently supported audio stream formats for 
 			WAVE files, the audio stream will not be normalized and the original WAVE file will be preserved 
 			as bit-level.
-			<transformation codec="LPCM" url="http://roadrunner.local:4567/transform/wave_norm"/>
-			<transformation codec="PCM" url="http://roadrunner.local:4567/transform/wave_norm"/>
+			<transformation codec="LPCM" url="http://localhost:7000/transformation/transform/wave_norm"/>
+			<transformation codec="PCM"  url="http://localhost:7000/transformation/transform/wave_norm"/>
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
