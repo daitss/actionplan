@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Change History
+
+07-24-2003
+Deleted all descriptions of the algorithm used to resolve file
+references, instead referring to a separate FDA report (“Resolving
+References in Distributed Objects”) for the details.
+
+02-01-2008
+Added Ingest Processing and Significant Properties sections.
+
+-->
+
+<action-plan format="XML" format-version="1.0">
+  <implementation-date>2003-06-09</implementation-date>
+  <release-date>2008-02-01</release-date>
+  <revision-date>2011-02</revision-date>
+  <ingest-processing>
+    <identification>
+      Yes, only documents conforming to the well-formedness rules defined by
+      the XML 1.0 specification will be identified as XML.
+    </identification>
+    <validation>
+      Yes. The FDA uses the validation rules specified in the XML 1.0 specification.
+    </validation>
+    <characterization>
+      Yes. Extracted technical metadata are described in section 2.2 of XML
+      action plan background.
+    </characterization>
+    <localization>
+      Yes. A localized version will be created for an XML file if it
+      contains at least one named reference to an external schema and
+      the reference can be resolved to a physical file using the
+      process described in “Resolving References in Distributed
+      Objects”, available on the Florida Digital Archive(FDA)
+      website. The format for this version, 'XML_norm_1', is described
+      in a separate FDA publication (“A Specification of the
+      XML_NORM_1 Format”).
+    </localization>
+    <migration>
+      No
+    </migration>
+    <normalization>
+      No
+    </normalization>
+  </ingest-processing>
+  <significant-properties>
+    <content>
+      All textual content will be preserved. Data defined inside &lt;CDATA&gt; will be
+      preserved as is.
+    </content>
+    <context>
+      Yes. Contextual information described in XML documents will be preserved.
+    </context>
+    <behavior>
+      External schema referenced by XML documents will be preserved. The
+      validation status of the XML documents will be preserved. XML behaviors defined in
+      &lt;CDATA&gt; section, such as java script, may not be preserved.
+    </behavior>
+    <structure>
+      Yes. The tree-like element structure defined in XML documents will be
+      preserved.
+    </structure>
+    <appearance>
+      N/A. XML does not contain appearance attributes. However, XML
+      documents can be associated with XML style sheets to define their appearance. The
+      preservation of XML style sheet is out of the scope of this document.
+    </appearance>
+  </significant-properties>
+
+  <long-term-strategy>
+    <original>
+      Migrate to XML 1.1 when XML 1.1 is supported by the FDA.
+    </original>
+    <localized>
+      Same as the original.
+    </localized>
+  </long-term-strategy>
+
+  <short-term-actions>
+    <action>
+      N/A
+    </action>
+  </short-term-actions>
+  <note>
+    This action plan is currently (02/01/08) under discussion and is subject to change.
+  </note>
+</action-plan>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Change History:
+
+01-30-2008
+Added Ingest Processing and Significant Properties sections.
+
+-->
+<action-plan format="XMLDTD" format-version="1.0">
+  <implementation-date>2003-07-22</implementation-date>
+  <release-date>2008-02-01</release-date>
+  <revision-date>2011-02</revision-date>
+  <ingest-processing>
+    <identification>
+      Yes, only markup declaration conforming to the plain text identification
+      rules and the well-formedness rules defined in the XML 1.0 specification are identified as DTD.
+    </identification>
+    <validation>
+      Yes. DTD must conform to the validation rules specified in the XML 1.0
+      specification.
+    </validation>
+    <characterization>
+      Yes. Extracted technical metadata are described in section 2.2 of XML
+      DTD action plan background.
+    </characterization>
+    <localization>
+        Yes.  A localized version will be created for a DTD file if it
+        contains at least one named reference to an external file (a
+        'link'), and the reference can be resolved to a physical file
+        using the resolution algorithms described in “Resolving
+        References in Distributed Objects” report, available on the
+        Florida Digital Archive (FDA) website. The format of this
+        version, XML_DTD_NORM_1, are described in a separate FDA
+        report (“A Specification of the XML_DTD_NORM_1 Format”)
+        available on the FDA website.
+    </localization>
+    <migration>
+      No
+    </migration>
+    <normalization>
+      No
+    </normalization>
+  </ingest-processing>
+  <significant-properties>
+    <content>
+      All textual content will be preserved.
+    </content>
+    <context>
+      N/A. DTD may contain definitions for storing contextual information. It does
+      not contain the actual context.
+    </context>
+    <behavior>  Constraints defined in DTD files will be preserved.
+    </behavior>
+    <structure>
+      Document structures defined in DTD files will be preserved.
+    </structure>
+    <appearance>
+      N/A. DTD does not provide a way to specify how DTD documents may be
+      displayed.
+    </appearance>
+  </significant-properties>
+  <long-term-strategy>
+    <original>
+      Migrate to a newer version of XML DTD or to a different XML schema language when the
+      XML DTD 1.0 format becomes unsupported by XML readers.
+    </original>
+    <localized>
+      Same as the original (see 3.1).
+    </localized>
+    <normalized>
+      N/A
+    </normalized>
+  </long-term-strategy>
+
+  <short-term-actions>
+    <action>
+      N/A
+    </action>
+  </short-term-actions>
+  <note>
+    This action plan is currently (02/01/08) under discussion and is subject to change.
+  </note>
+</action-plan>
+

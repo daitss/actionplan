@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-plan format="CSV">
+  <implementation-date>TBD</implementation-date>
+  <release-date>2007-06-29</release-date>
+  <revision-date>2010-06</revision-date>
+  <ingest-processing>
+    <identification>
+      Yes, by file extensions.
+    </identification>
+    <validation>
+      Yes. Format validation is based on the rules described in Section 1.13of CSV Action
+      Plan Background.
+    </validation>
+    <characterization>
+      Yes. Extracted format metadata are described in Section 2.1 of CSV Action
+      Plan Background.
+    </characterization>
+    <migration>
+      No
+    </migration>
+    <normalization>
+      No
+    </normalization>
+  </ingest-processing>
+  <significant-properties>
+    <content>
+      The content of cell data and the optional CSV header will be preserved.
+    </content>
+    <context>
+      N/A. CSV does not provide a metadata scheme to describe the environment on which a
+      CSV was originally created or used.
+    </context>
+    <behavior>
+      N/A. CSV does not contain interactive characteristics such as hyperlinks.
+    </behavior>
+    <structure>
+      The structural elements of a CSV, including rows and columns, will be preserved.
+    </structure>
+    <appearance>
+      N/A. CSV does not store appearance attributes such as font (including font size or
+      font style), color, alignment, etc.
+    </appearance>
+  </significant-properties>
+
+  <long-term-strategy>
+    <original>
+      Migrate to a successor format that is open, standardized and formally documented.
+    </original>
+
+    <normalized>
+      Not applicable.
+    </normalized>
+  </long-term-strategy>
+
+  <short-term-actions>
+    <action>
+      No action
+    </action>
+  </short-term-actions>
+  <note>
+    “From digital volatility to digital permanence, Preserving spreadsheets”, Jacqueline Slats, The Hague,              November 2003,
+    http://www.digitaleduurzaamheid.nl/bibliotheek/docs/volatility-permanence-spreadsh-en. pdf
+  </note>
+</action-plan>
+
