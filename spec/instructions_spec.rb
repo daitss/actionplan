@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "a good instruction request" do
 
   before(:each) do
-    get "/instructions", :description => escaped_fixture_url(:good)
+    get "/instructions", :description => fixture_url(:good)
   end
 
   it "should respond successfully" do
@@ -40,17 +40,17 @@ describe "a failed processing instruction request" do
   end
 
   it "should fail when the description is bad" do
-    get "/instructions", :description => escaped_fixture_url(:illformed)
+    get "/instructions", :description => fixture_url(:illformed)
     last_response.status.should == 400
   end
 
   it "should fail when a format cannot be determined" do
-    get "/instructions", :description => escaped_fixture_url(:missing_format)
+    get "/instructions", :description => fixture_url(:missing_format)
     last_response.status.should == 400
   end
 
   it "should be not found when an action plan does not exist for a format" do
-    get "/instructions", :description => escaped_fixture_url(:unknown_format)
+    get "/instructions", :description => fixture_url(:unknown_format)
     last_response.status.should == 404      
   end
 

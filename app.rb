@@ -3,7 +3,6 @@
 # stylesheet_doc = XML::Document.file stylesheet_file
 # $action_plan_to_html = LibXSLT::XSLT::Stylesheet.new stylesheet_doc
 
-require "cgi"
 require "net/http"
 require 'libxml'
 
@@ -23,7 +22,7 @@ class ActionPlanD < Sinatra::Default
   helpers do
 
     def fetch_premis_object u
-      url = URI.parse CGI::unescape(u)
+      url = URI.parse u
 
       case url.scheme
       when "http"
