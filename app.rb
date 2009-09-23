@@ -52,7 +52,7 @@ class ActionPlanD < Sinatra::Default
 
     def extract_codec doc
       codecs = xml_value_of doc, '//p:objectCharacteristicsExtension/aes:audioObject/aes:audioDataEncoding'
-      codec = codecs.split(' ').first
+      codec = codecs.split(' ').first rescue nil
     end
 
     def find_action_plan format, version
