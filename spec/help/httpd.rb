@@ -42,8 +42,3 @@ def fixture_url name
   raise 'unknown key' unless FIXTURES.has_key? name
   "http://localhost:#{TEST_PORT}/#{name}"
 end
-
-require 'cgi'
-def escaped_fixture_url name
-  CGI::escape fixture_url(name)
-end
