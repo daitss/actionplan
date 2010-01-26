@@ -1,125 +1,75 @@
-class ActionPlan
+module ActionPlan
 
-  def ActionPlan.first
-    $plans.first
-  end
+  class Plan
 
-  def to_s
-    CGI::escape format
-  end
+    def to_s
+      CGI::escape format
+    end
 
-  def initialize(source)
-    @xml_doc = XML::Parser.string(source).parse
+    def initialize(source)
+      @xml_doc = XML::Parser.string(source).parse
 
-    dtd_file = File.join File.dirname(__FILE__), '..', 'public', 'dtd', 'actionplan.dtd'
-    dtd = File.open(dtd_file) { |io| XML::Dtd.new io.read }
-    valid_against_dtd = @xml_doc.validate dtd
-  end
+      dtd_file = File.join File.dirname(__FILE__), '..', 'public', 'dtd', 'actionplan.dtd'
+      dtd = File.open(dtd_file) { |io| XML::Dtd.new io.read }
+      raise 'invalid' unless  @xml_doc.validate(dtd)
+    end
 
-  def format
-    @xml_doc.find_first('/action-plan/@format').value
-  end
+    def format
+      @xml_doc.find_first('/action-plan/@format').value 
+    end
 
-  def format_version
-    x = @xml_doc.find_first('/action-plan/@format-version')
+    def format_version
+      n = @xml_doc.find_first('/action-plan/@format-version')
+      n.value if n
+    end
 
-    if x.nil?
-      nil
-    else
-      x.value
+    def to_xml
+      @xml_doc.to_s
+    end
+
+    def migration codec=nil
+      xpath = if codec
+                %Q{//migration/transformation[@codec="#{codec}"]/@url}
+              else
+                '//migration/transformation/@url'
+              end
+
+      n = @xml_doc.find_first xpath
+      n.value if n
+    end
+
+    def normalization codec=nil
+      xpath = if codec
+                %Q{//normalization/transformation[@codec="#{codec}"]/@url}
+              else
+                '//normalization/transformation/@url'
+              end
+
+      n = @xml_doc.find_first xpath
+      n.value if n
+    end
+
+    def release_date
+      Time.parse @xml_doc.find_first('/action-plan/release-date').content
     end
 
   end
 
-  def to_xml
-    @xml_doc.to_s
-  end
+  PLANS_DIR = File.join File.dirname(__FILE__), '..', 'public', 'plans'
 
-  def to_html
-    $action_plan_to_html.apply(@xml_doc).to_s
-  end
+  def load_action_plans
+    pattern = File.join PLANS_DIR, '*.xml'
+    files = Dir[pattern]
+    raise "no action plans found in #{dir}" if files.empty?
 
-  def instructions_with_codec(codec)
-    full_processing_instructions.map do |type, map|
-      ins = {}
-      ins[:type] = type
-      transformation = map[codec] || map[:all]
-
-      if transformation
-        ins[:transformation] = transformation
-      else
-        ins[:limitation] = "#{codec} is not a supported codec"
-      end
-
-      ins
-    end
-  end
-
-  def generic_instructions
-    full_processing_instructions.map do |type, map|
-      ins = {}
-      ins[:type] = type
-
-      if map[:all]
-        ins[:transformation] = map[:all]
-      else
-        ins[:limitation] = "no generic transformation"
-      end
-
-      ins
-    end
-  end
-
-  def release_date
-    Time.parse @xml_doc.find_first('/action-plan/release-date').content
-  end
-
-  protected
-
-  def full_processing_instructions
-    instructions = {}
-
-    @xml_doc.find('/action-plan/ingest-processing/*[transformation]').each do |pi_tag|
-      key = pi_tag.name.downcase
-
-      map = pi_tag.find('transformation').inject({}) do |memo, transformation_tag|
-        codec = transformation_tag.attributes['codec'] || :all
-        transformation = transformation_tag.attributes['url']
-        memo.merge( { codec => transformation } )
-      end
-
-      instructions[key] = map
+    plans = files.inject([]) do |acc, file| 
+      plan = open(file) { |io| Plan.new io.read }
+      raise "#{file} seems to be a duplicate actionplan for #{plan.format}" if acc.any? { |p| p.format == plan.format and p.format_version == plan.format_version }
+      acc << plan
     end
 
-    instructions
   end
+  module_function :load_action_plans
 
-
-end
-
-def load_action_plans! dir
-  $plans = []
-  pattern = File.join dir, '*.xml'
-  raise "no action plans found in #{dir}" if Dir.glob(pattern).empty?
-
-  Dir.glob(pattern).each do |file|
-
-    plan = open(file) do |io|
-
-      begin
-        ActionPlan.new io.read
-      rescue => e
-        raise "#{File.basename file} is not valid: #{e.message}"
-        exit 1
-      end
-
-    end
-
-    if $plans.any? { |p| plan.format == p.format && plan.format_version == p.format_version }
-      raise "action plan for #{plan.format} #{plan.format_version} already exists"
-    end
-
-    $plans << plan
-  end
-
+  PLANS = load_action_plans
 end

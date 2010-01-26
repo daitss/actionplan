@@ -11,7 +11,7 @@ require File.join File.dirname(__FILE__), '..', 'app.rb'
 set :environment, :test
 
 def app
-  ActionPlanD
+  ActionPlan::App
 end
 
 
