@@ -28,10 +28,11 @@ module ActionPlan
     end
 
     def migration codec=nil
+
       xpath = if codec
                 %Q{//migration/transformation[@codec="#{codec}"]/@url}
               else
-                '//migration/transformation/@url'
+                '//migration/transformation[not(@codec)]/@url'
               end
 
       n = @xml_doc.find_first xpath
@@ -39,10 +40,11 @@ module ActionPlan
     end
 
     def normalization codec=nil
+
       xpath = if codec
                 %Q{//normalization/transformation[@codec="#{codec}"]/@url}
               else
-                '//normalization/transformation/@url'
+                '//normalization/transformation[not(@codec)]/@url'
               end
 
       n = @xml_doc.find_first xpath
