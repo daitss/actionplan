@@ -31,19 +31,16 @@ module ActionPlan
 
       def find_action_plan format, version
         potential_plans = PLANS.select { |p| p.format == format }
+        not_found "action plan for #{format} not found" if potential_plans.empty?
 
-        unless potential_plans.empty?
-
-          if version
-            potential_plans.find { |p| p.format_version == version }
-          else
-            potential_plans.sort { |a,b| a.format_version <=> b.format_version }.last
-          end
-
+        if version
+          potential_plans.reject! { |p| p.format_version != version }
+          not_found "action plan for #{format} #{version} not found" if potential_plans.empty?
         else
-          not_found "action plan for #{format} #{version} not found"
+          error 400, "format version is required to determine an action plan" if potential_plans.size > 1
         end
 
+        potential_plans.first
       end
 
       def xform_redirect url
