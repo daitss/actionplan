@@ -17,12 +17,12 @@
 		</characterization>
 		<migration>
 			Yes, BIFF8 files will be migrated to OOXML spreadsheet format.
-			<transformation url="http://transformation/biff8_mig"/>
+			<transformation url="http://localhost:7000/transformation/transform/biff8_mig"/>
 		</migration>
 		<normalization>
 			Yes, BIFF8 files will be normalized to Open Document Spreadsheet (ODF) 
 			via migrations to OOXML spreadsheet. 					
-			<transformation url="http://transformation/biff8_norm"/>
+			<transformation url="http://localhost:7000/transformation/transform/biff8_norm"/>
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
