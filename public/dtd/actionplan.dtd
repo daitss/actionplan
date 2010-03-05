@@ -12,13 +12,14 @@
 <!ELEMENT revision-date (#PCDATA)>
 
 <!-- ingest processing tasks to be done -->
-<!ELEMENT ingest-processing (identification, validation, characterization, localization?, migration?, normalization?)>
+<!ELEMENT ingest-processing (identification, validation, characterization, localization?, migration?, normalization?, xmlresolution?)>
 <!ELEMENT identification (#PCDATA)>
 <!ELEMENT validation (#PCDATA)>
 <!ELEMENT characterization (#PCDATA)>
 <!ELEMENT localization (#PCDATA)>
 <!ELEMENT normalization (#PCDATA | transformation)*>
 <!ELEMENT migration (#PCDATA | transformation)*>
+<!ELEMENT xmlresolution (#PCDATA)*>
 <!ELEMENT transformation (#PCDATA)>
 <!ATTLIST transformation codec CDATA #IMPLIED
                            url CDATA #REQUIRED>

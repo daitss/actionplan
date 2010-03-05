@@ -1,11 +1,7 @@
-require 'libxml'
 require 'sinatra'
 require 'actionplan'
 
 module ActionPlan
-
-  include LibXML
-  XML::Error.set_handler &XML::Error::QUIET_HANDLER
 
   class App < Sinatra::Default
 
@@ -70,6 +66,13 @@ module ActionPlan
       format, format_version, codec = extract_format_info
       plan = find_action_plan format, format_version
       n = plan.normalization codec
+      xform_redirect n
+    end
+
+    post '/xmlresolution' do
+      format, format_version, codec = extract_format_info
+      plan = find_action_plan format, format_version
+      n = plan.xmlresolution
       xform_redirect n
     end
 

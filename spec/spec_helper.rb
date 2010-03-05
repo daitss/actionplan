@@ -1,6 +1,5 @@
 require 'spec'
 require 'rack/test'
-require "help/httpd"
 require "help/xpath"
 
 Spec::Runner.configure do |conf|
@@ -13,5 +12,3 @@ set :environment, :test
 def app
   ActionPlan::App
 end
-
-

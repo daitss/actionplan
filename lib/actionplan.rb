@@ -1,4 +1,9 @@
+require 'libxml'
+
 module ActionPlan
+  include LibXML
+  XML.default_keep_blanks = false
+  XML::Error.set_handler &XML::Error::QUIET_HANDLER
 
   class Plan
 
@@ -49,6 +54,11 @@ module ActionPlan
 
       n = @xml_doc.find_first xpath
       n.value if n
+    end
+
+    def xmlresolution
+      n = @xml_doc.find_first '//xmlresolution'
+      n.content.strip if n
     end
 
     def release_date
