@@ -1,4 +1,4 @@
-<!ELEMENT action-plan (implementation-date, release-date, revision-date, ingest-processing, significant-properties, long-term-strategy, short-term-actions, note?)>
+<!ELEMENT action-plan (implementation-date, review-date, next-review, ingest-processing, significant-properties, long-term-strategy, short-term-actions, note?)>
 <!ATTLIST action-plan format CDATA #REQUIRED>
 <!ATTLIST action-plan format-version CDATA #IMPLIED>
 
@@ -25,7 +25,7 @@
                            url CDATA #REQUIRED>
 
 <!-- significant properties of a file to be preserved -->
-<!ELEMENT significant-properties (content, context, behavior, structure, appearance)>
+<!ELEMENT significant-properties (#PCDATA |  content | context | behavior | structure | appearance)*>
 <!ELEMENT content (#PCDATA)>
 <!ELEMENT context (#PCDATA)>
 <!ELEMENT behavior (#PCDATA)>

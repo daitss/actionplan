@@ -13,7 +13,6 @@ module ActionPlan
 
     def initialize(source)
       @xml_doc = XML::Parser.string(source).parse
-
       dtd_file = File.join File.dirname(__FILE__), '..', 'public', 'dtd', 'actionplan.dtd'
       dtd = File.open(dtd_file) { |io| XML::Dtd.new io.read }
       raise 'invalid' unless  @xml_doc.validate(dtd)
