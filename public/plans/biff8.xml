@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="BIFF8">
 	<implementation-date>TBD</implementation-date>
-	<release-date>2003-05-08</release-date>
-	<revision-date>2010-04</revision-date>
+	<review-date>2008-03-05</review-date>
+	<next-review>2010-04</next-review>
 	<ingest-processing>
 		<identification>
 			Yes, BIFF8 files will be identified using magic number, which is described 
@@ -26,6 +26,8 @@
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
+		BIFF8 exhibits the following significant properties. They are the significant properties which
+		the Florida Digital Archive intends to preserve for adopting migration or normalization policy.
 		<content>
 			All cell data and formula will be preserved.  Chart and Pivot tables may not be 
 			preserved. 

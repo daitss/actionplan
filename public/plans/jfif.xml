@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="JPEG" format-version="1.01">
-	<implementation-date>TBD</implementation-date>
-	<release-date>2003-12-22</release-date>
-	<revision-date>2009-04-01</revision-date>
+	<implementation-date>2005-12-01</implementation-date>
+	<review-date>2009-06-01</review-date>
+	<next-review>2012-06-01</next-review>
 	<ingest-processing>
-		<identification>TBD</identification>
-		<validation>TBD</validation>
-		<characterization>TDB</characterization>
+		<identification>Yes</identification>
+		<validation>Yes. Format validation is based on the rules described in section 1.14
+		of JFIF 1.02 Action Plan Background.</validation>
+		<characterization>Yes. Extracted technical metadata are described in section 2.2 of JFIF 1.02
+		Action Plan Background.</characterization>
 		<migration>TBD</migration>
 		<normalization>TBD</normalization>
 	</ingest-processing>
 	<significant-properties>
-		<content>TBD</content>
-		<context>TBD</context>
-		<behavior>TBD</behavior>
-		<structure>TBD</structure>
-		<appearance>TBD</appearance>
+		JFIF 1.02 exhibits the following raster image significant properties (note 1). They are the significant
+		properties which the FDA intends to preserve when adopting migration policy in the future.
+		<content>Image width and image height.</content>
+		<context>Creating application information.</context>
+		<behavior>N/A</behavior>
+		<structure>N/A</structure>
+		<appearance>X sampling frequency, Y sampling frequency, samples per pixel, bits per sample
+		and extra samples.</appearance>
 	</significant-properties>
 	<long-term-strategy>
 		<original>
@@ -24,6 +29,6 @@
 		</original>
 	</long-term-strategy>
 	<short-term-actions>
-		<action>TBD</action>
+		<action>None</action>
 	</short-term-actions>
 </action-plan>

@@ -1,29 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="TIFF" format-version="5.0">
-	<implementation-date>TBD</implementation-date>
-	<release-date>2003-1-31</release-date>
-	<revision-date>2009-04-01</revision-date>
+	<implementation-date>2005-12-01</implementation-date>
+	<review-date>2009-06</review-date>
+	<next-review>2012-06</next-review>
 	<ingest-processing>
-		<identification>TBD</identification>
-		<validation>TBD</validation>
-		<characterization>TDB</characterization>
-		<migration>TBD</migration>
-		<normalization>TBD</normalization>
+		<identification>
+			Yes
+		</identification>
+		<validation>
+			Yes. See the validation scheme for TIFF 6.0 images.
+		</validation>
+		<characterization>
+			Yes. See the characterization scheme for TIFF 6.0 images.
+		</characterization>
+		<migration>
+			No
+		</migration>
+		<normalization>
+			No
+		</normalization>
 	</ingest-processing>
 	<significant-properties>
-		<content>TBD</content>
-		<context>TBD</context>
-		<behavior>TBD</behavior>
-		<structure>TBD</structure>
-		<appearance>TBD</appearance>
+		TIFF 5.0 exhibits the following significant properties (note 1). They are the significant properties which
+		the FDA intends to preserve when adopting migration policy in the future.
+		<content>
+			Image width and image height.
+		</content>
+		<context>
+			Creating application information.
+		</context>
+		<behavior>
+			N/A
+		</behavior>
+		<structure>
+			If a TIFF file contains multiple images, the sequence of the images in the TIFF file
+			wil be preserved.
+		</structure>
+		<appearance>
+			X sampling frequency, Y sampling frequency, samples per pixel, bits per sample
+			and extra samples.
+		</appearance>
 	</significant-properties>
 	<long-term-strategy>
-    <original>
-      See the long-term preservation strategy for TIFF 6.0 images. TIFF 5.0 images will be treated in 
-      the archive as if they were TIFF 6.0 images because of their similarity. 
-    </original>
+		<original>
+			See the long-term preservation strategy for TIFF 6.0 images. TIFF 5.0 images will be treated in 
+			the archive as if they were TIFF 6.0 images because of their similarity. 
+		</original>
 	</long-term-strategy>
 	<short-term-actions>
-		<action>TBD</action>
+		<action>None</action>
 	</short-term-actions>
+	<note>
+		1. InSPECT Project Document, “Significant Properties Testing Report: Raster Images”, March 15, 2009
+	</note>
 </action-plan>

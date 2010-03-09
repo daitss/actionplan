@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="PRO">
 	<implementation-date>2007-05-04</implementation-date>
-	<release-date>2007-10-05</release-date>
-	<revision-date>2010-10</revision-date>
+	<review-date>2007-10-05</review-date>
+	<next-review>2010-10</next-review>
 	<ingest-processing>
 		<identification>
-		Magic Number. The magic number is described in Section 1.12 of PRO action
-		plan background.
+			Magic Number. The magic number is described in Section 1.12 of PRO action
+			plan background.
 		</identification>
 		<validation>
 			No
@@ -23,18 +23,18 @@
 	</ingest-processing>
 	<significant-properties>
 		<content>
-			  PRO files will be preserved without any loss in text.
+			PRO files will be preserved without any loss in text.
 		</content>
 		<context>
-           		The file name of the original image will be preserved.
+			The file name of the original image will be preserved.
 		</context> 
-		<behavior>TBD
+		<behavior>N/A
 		</behavior>
 		<structure>
-			TBD
+			N/A
 		</structure>
 		<appearance>
-			TBD
+			N/A
 		</appearance>
 	</significant-properties>
 
@@ -42,18 +42,17 @@
 		<original>
 			PRO files will be preserved “as-is”.
 		</original>
-		
+
 		<normalized>
-		Not applicable
+			Not applicable
 		</normalized>
 	</long-term-strategy>
 
- 	<short-term-actions>
-    		<action>
-      			No action
-    		</action>
- 	</short-term-actions>
-	<note>
-</note>
+	<short-term-actions>
+		<action>
+			No action
+		</action>
+	</short-term-actions>
+	<note></note>
 </action-plan>
 

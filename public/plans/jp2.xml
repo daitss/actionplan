@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="JPEG 2000" format-version="1.0">
-	<implementation-date>TBD</implementation-date>
-	<release-date>2005-11-7</release-date>
-	<revision-date>2007-11-01</revision-date>
+	<implementation-date>2005-11-07</implementation-date>
+	<review-date>2008-01-07</review-date>
+	<next-review>2012-01</next-review>
 	<ingest-processing>
-		<identification>TBD</identification>
-		<validation>TBD</validation>
-		<characterization>TDB</characterization>
-		<migration>TBD</migration>
-		<normalization>TBD</normalization>
+		<identification>Yes</identification>
+		<validation>Yes</validation>
+		<characterization>Yes</characterization>
+		<migration>No</migration>
+		<normalization>No</normalization>
 	</ingest-processing>
 	<significant-properties>
 		<content>TBD</content>
@@ -24,19 +24,6 @@
 		</original>
 	</long-term-strategy>
 	<short-term-actions>
-		<action>
-      Recommend that JP2 depositors validate their JP2 files using JHOVE 
-      (http://hul.harvard.edu/jhove/) or another JP2 validator before depositing them for ingest into 
-      the archive.  Ideally depositors should validate their JP2 files to test their JP2 creation 
-      software before choosing their software. 
-		</action>
-		<action>
-			Move JPEG 2000 (JP2 only, lossless compression) to the 'High Confidence Level' category of 
-      FCLA's “Recommended Data Formats for Preservation Purposes in the FCLA Digital 
-      Archive”.
-		</action>
-		<action>
-			Produce a guide to creating losslessly­compressed JP2 files.
-		</action>
+		<action>None</action>
 	</short-term-actions>
 </action-plan>

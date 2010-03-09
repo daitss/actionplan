@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="AIFF-C" format-version="1.0">
 	<implementation-date>TBD</implementation-date>
-	<release-date>2007-10-08</release-date>
-	<revision-date>2009-10</revision-date>
+	<review-date>2007-10-08</review-date>
+	<next-review>2009-10</next-review>
 	<ingest-processing>
 		<identification>
 			Yes

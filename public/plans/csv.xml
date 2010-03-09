@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="CSV">
-  <implementation-date>TBD</implementation-date>
-  <release-date>2007-06-29</release-date>
-  <revision-date>2010-06</revision-date>
+  <implementation-date>2007-06-29</implementation-date>
+  <review-date>2007-06-29</review-date>
+  <next-review>2010-06</next-review>
   <ingest-processing>
     <identification>
       Yes, by file extensions.
     </identification>
     <validation>
-      Yes. Format validation is based on the rules described in Section 1.13of CSV Action
+      Yes. Format validation is based on the rules described in Section 1.13 of CSV Action
       Plan Background.
     </validation>
     <characterization>
@@ -23,6 +23,8 @@
     </normalization>
   </ingest-processing>
   <significant-properties>
+	CSV exhibits the following significant properties(note 1). It is intended to preserve and evaluate these
+	significant properties when adopting migration or normalization policy in the future.
     <content>
       The content of cell data and the optional CSV header will be preserved.
     </content>
@@ -58,8 +60,8 @@
     </action>
   </short-term-actions>
   <note>
-    “From digital volatility to digital permanence, Preserving spreadsheets”, Jacqueline Slats, The Hague,              November 2003,
-    http://www.digitaleduurzaamheid.nl/bibliotheek/docs/volatility-permanence-spreadsh-en. pdf
+    1. “From digital volatility to digital permanence, Preserving spreadsheets”, Jacqueline Slats, The Hague,              November 2003,
+    http://www.digitaleduurzaamheid.nl/bibliotheek/docs/volatility-permanence-spreadsh-en.pdf
   </note>
 </action-plan>
 

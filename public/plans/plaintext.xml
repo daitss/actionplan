@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="ASCII">
   <implementation-date>2003-03-19</implementation-date>
-  <release-date>2007-08-24</release-date>
-  <revision-date>2012-08</revision-date>
+  <review-date>2007-08-24</review-date>
+  <next-review>2012-08</next-review>
   <ingest-processing>
     <identification>
       Yes, by parsing the entire file or the first 65536 characters for large files.
@@ -24,6 +24,8 @@
     </normalization>
   </ingest-processing>
   <significant-properties>
+	Plain text exhibits the following significant properties (note 1). It is intended to preserve and evaluate
+	these significant properties when adopting migration or normalization policy in the future.
     <content>
       All content, including every character, will be preserved.
     </content>
@@ -60,7 +62,7 @@
     </action>
   </short-term-actions>
   <note>
-    “From digital volatility to digital permanence, Preserving text documents”, Jacqueline Slats, The Hague,
+    1. “From digital volatility to digital permanence, Preserving text documents”, Jacqueline Slats, The Hague,
     November 2003, http://www.digitaleduurzaamheid.nl/bibliotheek/docs/volatility-permanence-textdocs-en.pdf
   </note>
 </action-plan>

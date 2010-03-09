@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="QUICKTIME">
 	<implementation-date>2006-01-24</implementation-date>
-	<release-date>2008-01-07</release-date>
-	<revision-date>2012-01</revision-date>
+	<review-date>2008-01-07</review-date>
+	<next-review>2012-01</next-review>
 	<ingest-processing>
 		<identification>
 			Yes
@@ -59,8 +59,5 @@
       			None
     		</action>
  	</short-term-actions>
-	<note>
-	This action plan is currently under discussion and is subject to change.
-</note>
 </action-plan>
 

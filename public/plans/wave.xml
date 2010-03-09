@@ -1,41 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="WAVE">
-	<implementation-date>TBD</implementation-date>
-	<release-date>2004-03-29</release-date>
-	<revision-date>2009-07-02</revision-date>
+	<implementation-date>2005-12-01</implementation-date>
+	<review-date>2009-06</review-date>
+	<next-review>2012-06</next-reviewe>
 	<ingest-processing>
-		<identification>TBD</identification>
-		<validation>TBD</validation>
-		<characterization>TDB</characterization>
-		<migration>TBD</migration>
+		<identification>
+			Yes
+		</identification>
+		<validation>
+			Yes. See the validation scheme described in Section 1.13 of WAVE Action Plan
+		Background Report.
+		</validation>
+		<characterization>
+			Yes. Extracted technical metadata are described in section 2 of WAVE
+		Action Plan Background Report.
+		</characterization>
+		<migration>
+			No
+		</migration>
 		<normalization>
-			Each video/audio stream contained in the WAVE file will be normalized according to the Action 
-			Plan for FCLA Supported Video/Audio Stream Formats (“Audio Streams in WAVE files” section). 
-			If the audio stream encoding is not in the list of currently supported audio stream formats for 
-			WAVE files, the audio stream will not be normalized and the original WAVE file will be preserved 
-			as bit-level.
+			Each audio stream contained in the WAVE file is normalized into an
+			uncompressed PCM(LPCM) audio stream with a sample size of 16 bits/sample.
 			<transformation codec="LPCM" url="http://localhost:7000/transformation/transform/wave_norm"/>
 			<transformation codec="PCM"  url="http://localhost:7000/transformation/transform/wave_norm"/>
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
-		<content>TBD</content>
-		<context>TBD</context>
-		<behavior>TBD</behavior>
-		<structure>TBD</structure>
-		<appearance>TBD</appearance>
+		WAVE exhibits the following significant properties (note 1). They are the significant properties which
+		the FDA intends to preserve when adopting migration policy in the future.
+		<content>
+			Duration and number of channels.
+		</content>
+		<context>
+			Title and creating application information.
+		</context>
+		<behavior>
+			N/A
+		</behavior>
+		<structure>
+			Channel relationship (channel mapping).
+		</structure>
+		<appearance>
+			Sampling frequency and bit-depth.
+		</appearance>
 	</significant-properties>
 	<long-term-strategy>
 		<original>
-			Migrate to newer WAVE versions or to an open, standardized and well supported audio file format 
-			that is to be a good successor for the WAVE file format.
+			Migrate to newer WAVE versions or to an open, standardized and well supported audio file
+			format that is to be a good successor for the WAVE file format.
 		</original>
 		<normalized>
-			Not applicable for  WAVE file format.   For the normalized audio stream formats, please see the 
-			Action Plan for  FCLA Supported Video/Audio Stream Formats. 
+			Normalized version will not be migrated.
 		</normalized>
 	</long-term-strategy>
 	<short-term-actions>
-		<action>Please see the Action Plan for  FCLA Supported Video/Audio Stream Formats.</action>
+		<action>None</action>
 	</short-term-actions>
+	<note>
+		1. InSPECT, “Framework for the definition of significant Properties”, February 5, 2008
+	</note>
 </action-plan>
