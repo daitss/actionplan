@@ -17,8 +17,7 @@
 			No
 		</migration>
 		<normalization>
-			Yes
-			<transformation url="http://localhost:7000/transformation/transform/pdf_norm"/>
+			No
 		</normalization>
 	</ingest-processing>
 	<significant-properties>

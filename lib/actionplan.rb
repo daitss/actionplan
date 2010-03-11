@@ -1,12 +1,13 @@
 require 'libxml'
 
 module ActionPlan
-  include LibXML
-  XML.default_keep_blanks = false
-  XML::Error.set_handler &XML::Error::QUIET_HANDLER
-
+  
   class Plan
-
+    
+    include LibXML
+    XML.default_keep_blanks = false
+    XML::Error.set_handler &XML::Error::QUIET_HANDLER
+     
     def to_s
       CGI::escape format
     end
