@@ -3,7 +3,7 @@ require 'actionplan'
 
 module ActionPlan
 
-  class App < Sinatra::Default
+  class App < Sinatra::Base
 
     set :root, File.dirname(__FILE__)
 
