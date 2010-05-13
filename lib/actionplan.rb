@@ -1,13 +1,14 @@
 require 'libxml'
 
+include LibXML
+
 module ActionPlan
-  
+
   class Plan
-    
-    include LibXML
+
     XML.default_keep_blanks = false
     XML::Error.set_handler &XML::Error::QUIET_HANDLER
-     
+
     def to_s
       CGI::escape format
     end
@@ -20,7 +21,7 @@ module ActionPlan
     end
 
     def format
-      @xml_doc.find_first('/action-plan/@format').value 
+      @xml_doc.find_first('/action-plan/@format').value
     end
 
     def format_version
@@ -74,7 +75,7 @@ module ActionPlan
     files = Dir[pattern]
     raise "no action plans found in #{dir}" if files.empty?
 
-    plans = files.inject([]) do |acc, file| 
+    plans = files.inject([]) do |acc, file|
       plan = open(file) { |io| Plan.new io.read }
       raise "#{file} seems to be a duplicate actionplan for #{plan.format}" if acc.any? { |p| p.format == plan.format and p.format_version == plan.format_version }
       acc << plan

@@ -1,11 +1,15 @@
 require 'sinatra'
 require 'actionplan'
+require 'libxml'
+
+include LibXML
 
 module ActionPlan
 
   class App < Sinatra::Base
 
     set :root, File.dirname(__FILE__)
+    set :logging, true
 
     helpers do
 
@@ -26,7 +30,7 @@ module ActionPlan
       end
 
       def find_action_plan format, version
-        potential_plans = PLANS.select { |p| p.format == format }
+        potential_plans = ActionPlan::PLANS.select { |p| p.format == format }
         not_found "action plan for #{format} not found" if potential_plans.empty?
 
         if version
