@@ -190,7 +190,7 @@ describe "/normalization" do
 
     post @url, :description => premis_object
     last_response.status.should == 302
-    last_response['Location'].should == 'http://localhost:7000/transformation/transform/wave_norm'
+    last_response['Location'].should == 'http://localhost:7006/transform/wave_norm'
   end
 
 end
