@@ -20,7 +20,7 @@ describe "/xmlresolution" do
           <size>1050</size>
           <format>
             <formatDesignation>
-              <formatName>XML</formatName>
+              <formatName>Extensible Markup Language</formatName>
               <formatVersion>1.0</formatVersion>
             </formatDesignation>
             <formatRegistry>

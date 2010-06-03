@@ -12,7 +12,7 @@ Added Ingest Processing and Significant Properties sections.
 
 -->
 
-<action-plan format="XML" format-version="1.0">
+<action-plan format="Extensible Markup Language" format-version="1.0">
   <implementation-date>2003-06-09</implementation-date>
   <review-date>2008-02-01</review-date>
   <next-review>2011-02</next-review>
