@@ -174,7 +174,7 @@ describe "/normalization" do
     <size>5138268</size>
     <format>
       <formatDesignation>
-        <formatName>WAVE</formatName>
+        <formatName>Waveform Audio</formatName>
       </formatDesignation>
     </format>
     <objectCharacteristicsExtension>
