@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="TIFF" format-version="6.0">
-	<implementation-date>2005-12-01</implementation-date>
-	<review-date>2009-06</review-date>
-	<next-review>2012-06</next-review>
+	<implementation-date>2005.12.01</implementation-date>
+	<revision-date>2010.09.16</revision-date>	
+	<review-date>2009.06</review-date>
+	<next-review>2012.06</next-review>
 	<ingest-processing>
 		<identification>
 			Yes

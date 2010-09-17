@@ -1,9 +1,12 @@
-<!ELEMENT action-plan (implementation-date, review-date, next-review, ingest-processing, significant-properties, long-term-strategy, short-term-actions, note?)>
+<!ELEMENT action-plan (implementation-date, revision-date, review-date, next-review, ingest-processing, significant-properties, long-term-strategy, short-term-actions, note?)>
 <!ATTLIST action-plan format CDATA #REQUIRED>
 <!ATTLIST action-plan format-version CDATA #IMPLIED>
 
 <!-- when this plan is implemented in software? -->
 <!ELEMENT implementation-date (#PCDATA)>
+
+<!-- when this plan is last revised? -->
+<!ELEMENT revision-date (#PCDATA)>
 
 <!-- when this plan is last reviewed? -->
 <!ELEMENT review-date (#PCDATA)>

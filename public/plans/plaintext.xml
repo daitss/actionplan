@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="ASCII">
-  <implementation-date>2003-03-19</implementation-date>
-  <review-date>2007-08-24</review-date>
-  <next-review>2012-08</next-review>
+  <implementation-date>2003.03.19</implementation-date>
+  <revision-date>2010.09.16</revision-date>
+  <review-date>2007.08.24</review-date>
+  <next-review>2012.08</next-review>
   <ingest-processing>
     <identification>
       Yes, by parsing the entire file or the first 65536 characters for large files.
