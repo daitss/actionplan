@@ -54,8 +54,7 @@ describe "/xmlresolution" do
     XML
 
     post "/xmlresolution", :description => premis_object
-    last_response.status.should == 302
-    last_response['Location'].should == 'http://localhost:7000/xmlresolution'
+    last_response.should be_ok
   end
 
   it "should not redirect a file object that should not be resolved" do
@@ -114,7 +113,7 @@ describe "/xmlresolution" do
     PDF
 
     post  '/xmlresolution', :description => premis_object
-    last_response.status.should == 404
+    last_response.should_not be_ok
   end
 
 end

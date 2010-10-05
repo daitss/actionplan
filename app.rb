@@ -81,6 +81,5 @@ end
 post '/xmlresolution' do
   format, format_version, codec = extract_format_info
   plan = find_action_plan format, format_version
-  n = plan.xmlresolution
-  xform_redirect n
+  not_found unless plan.xmlresolution
 end
