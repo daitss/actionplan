@@ -36,9 +36,9 @@ module ActionPlan
     def migration codec=nil
 
       xpath = if codec
-                %Q{//migration/transformation[@codec="#{codec}"]/@url}
+                %Q{//migration/transformation[@codec="#{codec}"]/@id}
               else
-                '//migration/transformation[not(@codec)]/@url'
+                '//migration/transformation[not(@codec)]/@id'
               end
 
       n = @xml_doc.find_first xpath
@@ -48,9 +48,9 @@ module ActionPlan
     def normalization codec=nil
 
       xpath = if codec
-                %Q{//normalization/transformation[@codec="#{codec}"]/@url}
+                %Q{//normalization/transformation[@codec="#{codec}"]/@id}
               else
-                '//normalization/transformation[not(@codec)]/@url'
+                '//normalization/transformation[not(@codec)]/@id'
               end
 
       n = @xml_doc.find_first xpath
@@ -64,6 +64,10 @@ module ActionPlan
 
     def release_date
       Time.parse @xml_doc.find_first('/action-plan/release-date').content
+    end
+
+    def revision_date
+      @xml_doc.find_first('/action-plan/revision-date').content
     end
 
   end

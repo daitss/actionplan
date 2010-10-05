@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'json'
 
 shared_examples_for "any transformation" do
 
@@ -79,7 +80,7 @@ shared_examples_for "any transformation" do
   # format version exists
   # codec exists
 
-  it "should 400 if version is needed and not supplied" do
+  it "should 404 if version is needed and not supplied" do
 
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -106,7 +107,7 @@ shared_examples_for "any transformation" do
     XML
 
     post @url, :description => premis_object
-    last_response.status.should ==  400
+    last_response.status.should == 404
   end
 
   it "should 404 if codec is needed and not supplied" do
@@ -146,7 +147,7 @@ describe "/migration" do
 
   it_should_behave_like "any transformation"
 
-  it "should redirect to the proper transformation" do
+  it "should return proper transformation and actionplan info" do
     pending "no migrations defined in any actionplan yet"
   end
 
@@ -157,7 +158,7 @@ describe "/normalization" do
 
   it_should_behave_like "any transformation"
 
-  it "should redirect to the proper transformation" do
+  it "should return proper transformation and actionplan info" do
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
 <object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
@@ -189,8 +190,15 @@ describe "/normalization" do
     XML
 
     post @url, :description => premis_object
-    last_response.status.should == 302
-    last_response['Location'].should == 'http://localhost:7006/transform/wave_norm'
+    last_response.should be_ok
+
+    obj = {
+      'plan' => { 'format' => 'Waveform Audio', 'version' => nil, 'revision' => '2010.09.16' },
+      'transformation' => { 'id' => 'wave_norm', 'type' => 'normalization', 'codec' => 'PCM' },
+      #:agent => haml :agent
+    }
+
+    h = JSON.parse(last_response.body).should == obj
   end
 
 end

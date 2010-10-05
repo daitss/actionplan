@@ -25,7 +25,7 @@
 <!ELEMENT xmlresolution (#PCDATA)*>
 <!ELEMENT transformation (#PCDATA)>
 <!ATTLIST transformation codec CDATA #IMPLIED
-                           url CDATA #REQUIRED>
+                            id CDATA #REQUIRED>
 
 <!-- significant properties of a file to be preserved -->
 <!ELEMENT significant-properties (#PCDATA |  content | context | behavior | structure | appearance)*>

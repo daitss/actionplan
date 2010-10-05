@@ -19,7 +19,7 @@
     </migration>
     <normalization>
       Yes
-      <transformation url="http://localhost:7000/transformation/transform/avi_norm"/>
+      <transformation id="avi_norm"/>
     </normalization>
   </ingest-processing>
   <significant-properties>

@@ -1,10 +1,10 @@
 require "rubygems"
-require "bundler"
-Bundler.setup
+require "bundler/setup"
 
 require 'sinatra'
 require 'actionplan'
 require 'libxml'
+require 'json'
 
 include LibXML
 
@@ -33,22 +33,12 @@ helpers do
     if version
       potential_plans.reject! { |p| p.format_version != version }
       not_found "action plan for #{format} #{version} not found" if potential_plans.empty?
-    else # only retain the general action plan of that format, i.e. the one without format version.
-	  potential_plans.reject! { |p| p.format_version}
-      #error 400, "format version is required to determine an action plan" if potential_plans.size > 1
+    else
+      potential_plans.reject! { |p| p.format_version} # find the general case plan, i.e. the one with no version
+      not_found "action plan for #{format} not found" if potential_plans.empty?
     end
 
     potential_plans.first
-  end
-
-  def xform_redirect url
-
-    if url
-      redirect url
-    else
-      not_found
-    end
-
   end
 
 end
@@ -60,15 +50,29 @@ end
 post '/migration' do
   format, format_version, codec = extract_format_info
   plan = find_action_plan format, format_version
-  m = plan.migration codec
-  xform_redirect m
+  xform_id = plan.migration codec
+  not_found unless xform_id
+
+  obj = {
+    :plan => { :format => plan.format, :version => plan.format_version, :revision => plan.revision_date },
+    :transformation => { :id => xform_id, :type => :normalization, :codec => codec }
+  }
+
+  obj.to_json
 end
 
 post '/normalization' do
   format, format_version, codec = extract_format_info
   plan = find_action_plan format, format_version
-  n = plan.normalization codec
-  xform_redirect n
+  xform_id = plan.normalization codec
+  not_found unless xform_id
+
+  obj = {
+    :plan => { :format => plan.format, :version => plan.format_version, :revision => plan.revision_date },
+    :transformation => { :id => xform_id, :type => :normalization, :codec => codec }
+  }
+
+  obj.to_json
 end
 
 post '/xmlresolution' do

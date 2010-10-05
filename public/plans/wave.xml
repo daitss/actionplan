@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="Waveform Audio">
-	<implementation-date>2005.12.01</implementation-date>
-	<revision-date>2010.09.16</revision-date>		
-	<review-date>2009.06</review-date>
-	<next-review>2012.06</next-review>
-	<ingest-processing>
-		<identification>
-			Yes
-		</identification>
-		<validation>
-			Yes. See the validation scheme described in Section 1.13 of WAVE Action Plan
-		Background Report.
-		</validation>
-		<characterization>
-			Yes. Extracted technical metadata are described in section 2 of WAVE
-		Action Plan Background Report.
-		</characterization>
-		<migration>
-			No
-		</migration>
-		<normalization>
-			Each audio stream contained in the WAVE file is normalized into an
-			uncompressed PCM(LPCM) audio stream with a sample size of 16 bits/sample.
-                        <transformation codec="LPCM" url="http://localhost:7006/transform/wave_norm"/>
-                        <transformation codec="PCM"  url="http://localhost:7006/transform/wave_norm"/>
-		</normalization>
-	</ingest-processing>
-	<significant-properties>
-		WAVE exhibits the following significant properties (note 1). They are the significant properties which
-		the FDA intends to preserve when adopting migration policy in the future.
-		<content>
-			Duration and number of channels.
-		</content>
-		<context>
-			Title and creating application information.
-		</context>
-		<behavior>
-			N/A
-		</behavior>
-		<structure>
-			Channel relationship (channel mapping).
-		</structure>
-		<appearance>
-			Sampling frequency and bit-depth.
-		</appearance>
-	</significant-properties>
-	<long-term-strategy>
-		<original>
-			Migrate to newer WAVE versions or to an open, standardized and well supported audio file
-			format that is to be a good successor for the WAVE file format.
-		</original>
-		<normalized>
-			Normalized version will not be migrated.
-		</normalized>
-	</long-term-strategy>
-	<short-term-actions>
-		<action>None</action>
-	</short-term-actions>
-	<note>
-		1. InSPECT, “Framework for the definition of significant Properties”, February 5, 2008
-	</note>
+  <implementation-date>2005.12.01</implementation-date>
+  <revision-date>2010.09.16</revision-date>
+  <review-date>2009.06</review-date>
+  <next-review>2012.06</next-review>
+  <ingest-processing>
+    <identification>
+      Yes
+    </identification>
+    <validation>
+      Yes. See the validation scheme described in Section 1.13 of WAVE Action Plan
+      Background Report.
+    </validation>
+    <characterization>
+      Yes. Extracted technical metadata are described in section 2 of WAVE
+      Action Plan Background Report.
+    </characterization>
+    <migration>
+      No
+    </migration>
+    <normalization>
+      Each audio stream contained in the WAVE file is normalized into an
+      uncompressed PCM(LPCM) audio stream with a sample size of 16 bits/sample.
+      <transformation codec="LPCM" id="wave_norm"/>
+      <transformation codec="PCM"  id="wave_norm"/>
+    </normalization>
+  </ingest-processing>
+  <significant-properties>
+    WAVE exhibits the following significant properties (note 1). They are the significant properties which
+    the FDA intends to preserve when adopting migration policy in the future.
+    <content>
+      Duration and number of channels.
+    </content>
+    <context>
+      Title and creating application information.
+    </context>
+    <behavior>
+      N/A
+    </behavior>
+    <structure>
+      Channel relationship (channel mapping).
+    </structure>
+    <appearance>
+      Sampling frequency and bit-depth.
+    </appearance>
+  </significant-properties>
+  <long-term-strategy>
+    <original>
+      Migrate to newer WAVE versions or to an open, standardized and well supported audio file
+      format that is to be a good successor for the WAVE file format.
+    </original>
+    <normalized>
+      Normalized version will not be migrated.
+    </normalized>
+  </long-term-strategy>
+  <short-term-actions>
+    <action>None</action>
+  </short-term-actions>
+  <note>
+    1. InSPECT, “Framework for the definition of significant Properties”, February 5, 2008
+  </note>
 </action-plan>
