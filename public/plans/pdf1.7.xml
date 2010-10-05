@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="PDF" format-version="1.7">
-	<implementation-date>2008-03-31</implementation-date>
-	<review-date>2008-01-09</review-date>
-	<next-review>2012-01</next-review>
+	<implementation-date>2008.03.31</implementation-date>
+	<revision-date>2010.09.16</revision-date>	
+	<review-date>2008.01.09</review-date>
+	<next-review>2012.01</next-review>
 	<ingest-processing>
 		<identification>
 			Yes

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<action-plan format="TIFF" format-version="5.0">
+<action-plan format="TIFF">
 	<implementation-date>2005.12.01</implementation-date>
-	<revision-date>2010.09.16</revision-date>	
+	<revision-date>2010.09.16</revision-date>
 	<review-date>2009.06</review-date>
 	<next-review>2012.06</next-review>
 	<ingest-processing>
@@ -22,7 +22,7 @@
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
-		TIFF 5.0 exhibits the following significant properties (note 1). They are the significant properties which
+		TIFF exhibits the following significant properties (note 1). They are the significant properties which
 		the FDA intends to preserve when adopting migration policy in the future.
 		<content>
 			Image width and image height.
@@ -35,7 +35,7 @@
 		</behavior>
 		<structure>
 			If a TIFF file contains multiple images, the sequence of the images in the TIFF file
-			wil be preserved.
+			will be preserved.
 		</structure>
 		<appearance>
 			X sampling frequency, Y sampling frequency, samples per pixel, bits per sample
@@ -44,8 +44,7 @@
 	</significant-properties>
 	<long-term-strategy>
 		<original>
-			See the long-term preservation strategy for TIFF 6.0 images. TIFF 5.0 images will be treated in 
-			the archive as if they were TIFF 6.0 images because of their similarity. 
+			See the long-term preservation strategy for TIFF 5.0 and TIFF 6.0. 
 		</original>
 	</long-term-strategy>
 	<short-term-actions>

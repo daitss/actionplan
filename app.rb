@@ -33,8 +33,9 @@ helpers do
     if version
       potential_plans.reject! { |p| p.format_version != version }
       not_found "action plan for #{format} #{version} not found" if potential_plans.empty?
-    else
-      error 400, "format version is required to determine an action plan" if potential_plans.size > 1
+    else # only retain the general action plan of that format, i.e. the one without format version.
+	  potential_plans.reject! { |p| p.format_version}
+      #error 400, "format version is required to determine an action plan" if potential_plans.size > 1
     end
 
     potential_plans.first

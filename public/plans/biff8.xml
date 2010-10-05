@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="BIFF8">
 	<implementation-date>TBD</implementation-date>
-	<review-date>2008-03-05</review-date>
-	<next-review>2010-04</next-review>
+	<revision-date>2010.09.16</revision-date>	
+	<review-date>2008.03.05</review-date>
+	<next-review>2010.04</next-review>
 	<ingest-processing>
 		<identification>
 			Yes, BIFF8 files will be identified using magic number, which is described 

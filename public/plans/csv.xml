@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="CSV">
-  <implementation-date>2007-06-29</implementation-date>
-  <review-date>2007-06-29</review-date>
-  <next-review>2010-06</next-review>
+  <implementation-date>2007.06.29</implementation-date>
+  <revision-date>2010.09.16</revision-date>
+  <review-date>2007.06.29</review-date>
+  <next-review>2010.06</next-review>
   <ingest-processing>
     <identification>
       Yes, by file extensions.
