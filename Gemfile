@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 gem "sinatra", "~>1.0"
 gem "json"
+gem "haml"
 
 group :test do
   gem "rspec", "~>1.3", :require => "spec"

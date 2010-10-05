@@ -5,6 +5,7 @@ require 'sinatra'
 require 'actionplan'
 require 'libxml'
 require 'json'
+require 'haml'
 
 include LibXML
 
@@ -55,7 +56,8 @@ post '/migration' do
 
   obj = {
     :plan => { :format => plan.format, :version => plan.format_version, :revision => plan.revision_date },
-    :transformation => { :id => xform_id, :type => :normalization, :codec => codec }
+    :transformation => { :id => xform_id, :type => :normalization, :codec => codec },
+    :agent => haml(:agent)
   }
 
   obj.to_json
@@ -69,7 +71,8 @@ post '/normalization' do
 
   obj = {
     :plan => { :format => plan.format, :version => plan.format_version, :revision => plan.revision_date },
-    :transformation => { :id => xform_id, :type => :normalization, :codec => codec }
+    :transformation => { :id => xform_id, :type => :normalization, :codec => codec },
+    :agent => haml(:agent)
   }
 
   obj.to_json

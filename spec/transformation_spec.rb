@@ -191,14 +191,12 @@ describe "/normalization" do
 
     post @url, :description => premis_object
     last_response.should be_ok
-
-    obj = {
-      'plan' => { 'format' => 'Waveform Audio', 'version' => nil, 'revision' => '2010.09.16' },
-      'transformation' => { 'id' => 'wave_norm', 'type' => 'normalization', 'codec' => 'PCM' },
-      #:agent => haml :agent
-    }
-
-    h = JSON.parse(last_response.body).should == obj
+    plan = { 'format' => 'Waveform Audio', 'version' => nil, 'revision' => '2010.09.16' }
+    transformation = { 'id' => 'wave_norm', 'type' => 'normalization', 'codec' => 'PCM' }
+    h = JSON.parse(last_response.body)
+    h['plan'].should == plan
+    h['transformation'].should == transformation
+    lambda { XML::Document.string h['agent'] }.should_not raise_error
   end
 
 end
