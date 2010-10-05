@@ -21,3 +21,5 @@ gems/gems/*
 gems/specifications/*
 merb_profile_results
 *.swp
+*.log
+*.pid
