@@ -71,7 +71,14 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
     @event_id_type = params['event-id-type'] or error 400, 'event-id-type is required'
     @event_id_value = params['event-id-value'] or error 400, 'event-id-value is required'
     @xform_type = type
-    @xform_id = @plan.normalization @codec
+
+    @xform_id = case type
+                when 'normalization'
+                  @plan.normalization @codec
+                when 'migration'
+                  @plan.migration @codec
+                end
+
     not_found unless @xform_id
     haml :premis
   end
