@@ -3,13 +3,18 @@ require 'json'
 
 shared_examples_for "any transformation" do
 
+  it "should 400 when missing event identifier" do
+    post @url, :object => 'foo'
+    last_response.status.should == 400
+  end
+
   it "should 400 when missing description" do
     post @url
     last_response.status.should == 400
   end
 
-  it "should 400 when bad description" do
-    post @url, :description => "<premis>foo<premis>"
+  it "should 400 when bad object" do
+    post @url, :object => "<premis>foo<premis>"
     last_response.status.should == 400
   end
 
@@ -40,7 +45,7 @@ shared_examples_for "any transformation" do
 </object>
     XML
 
-    post @url, :description => premis_object
+    post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
     last_response.status.should == 404
   end
 
@@ -71,7 +76,7 @@ shared_examples_for "any transformation" do
 </object>
     XML
 
-    post @url, :description => premis_object
+    post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
     last_response.status.should == 404
   end
 
@@ -106,7 +111,7 @@ shared_examples_for "any transformation" do
 </object>
     XML
 
-    post @url, :description => premis_object
+    post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
     last_response.status.should == 404
   end
 
@@ -136,7 +141,7 @@ shared_examples_for "any transformation" do
 </object>
     XML
 
-    post @url, :description => premis_object
+    post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
     last_response.status.should == 404
   end
 
@@ -189,14 +194,15 @@ describe "/normalization" do
 </object>
     XML
 
-    post @url, :description => premis_object
+    post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
     last_response.should be_ok
-    plan = { 'format' => 'Waveform Audio', 'version' => nil, 'revision' => '2010.09.16' }
-    transformation = { 'id' => 'wave_norm', 'type' => 'normalization', 'codec' => 'PCM' }
-    h = JSON.parse(last_response.body)
-    h['plan'].should == plan
-    h['transformation'].should == transformation
-    lambda { XML::Document.string h['agent'] }.should_not raise_error
+    doc = XML::Document.string last_response.body
+    detail = doc.find_first('//p:event//p:eventDetail', NS_MAP).content
+    detail.should include('normalization: wave_norm')
+    detail.should include('codec: PCM')
+    detail.should include('format: Waveform Audio')
+    detail.should include('format version: None')
+    detail.should include('revision date: 2010.09.16')
   end
 
 end

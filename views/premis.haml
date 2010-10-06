@@ -1,0 +1,31 @@
+!!! XML
+%premis{:xmlns => 'info:lc/xmlns/premis-v2', :version => '2.0'}
+  %event
+    %eventIdentifier
+      %eventIdentifierType= @event_id_type
+      %eventIdentifierValue= @event_id_value
+    %eventType actionplan
+    %eventDateTime= Time.now.xmlschema
+    %eventDetail
+      #{@xform_type}: #{@xform_id}
+      codec: #{@codec || "None"}
+      format: #{@plan.format}
+      format version: #{@plan.format_version || "None"}
+      revision date: #{@plan.revision_date}
+    %eventOutcomeInformation
+      %eventOutcome success
+    %linkingAgentIdentifier
+      %linkingAgentIdentifierType= @agent_id_type
+      %linkingAgentIdentifierValue= @agent_id_value
+    %linkingObjectIdentifier
+      %linkingObjectIdentifierType= @object_id_type
+      %linkingObjectIdentifierValue= @object_id_value
+  %agent
+    %agentIdentifier
+      %agentIdentifierType= @agent_id_type
+      %agentIdentifierValue= @agent_id_value
+    %agentIdentifier
+      %agentIdentifierType URI
+      %agentIdentifierValue info:fda/actionplan/v0.2.0
+    %agentName Action Plan Service (Version 0.2.0)
+    %agentType software

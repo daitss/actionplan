@@ -53,7 +53,7 @@ describe "/xmlresolution" do
       </object>
     XML
 
-    post "/xmlresolution", :description => premis_object
+    post "/xmlresolution", :object => premis_object
     last_response.should be_ok
   end
 
@@ -112,7 +112,7 @@ describe "/xmlresolution" do
       </object>
     PDF
 
-    post  '/xmlresolution', :description => premis_object
+    post  '/xmlresolution', :object => premis_object
     last_response.should_not be_ok
   end
 
