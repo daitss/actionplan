@@ -196,13 +196,12 @@ describe "/normalization" do
 
     post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
     last_response.should be_ok
-    doc = XML::Document.string last_response.body
-    detail = doc.find_first('//p:event//p:eventDetail', NS_MAP).content
-    detail.should include('normalization: wave_norm')
-    detail.should include('codec: PCM')
-    detail.should include('format: Waveform Audio')
-    detail.should include('format version: None')
-    detail.should include('revision date: 2010.09.16')
+    json = JSON.parse last_response.body
+    json['normalization'].should == 'wave_norm'
+    json['codec'].should == 'PCM'
+    json['format'].should == 'Waveform Audio'
+    json['format version'].should == 'None'
+    json['revision date'].should == '2010.09.16'
   end
 
 end

@@ -80,7 +80,15 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
                 end
 
     not_found unless @xform_id
-    haml :premis
+
+    {
+      'normalization' => @xform_id,
+      'codec' => @codec,
+      'format' => @plan.format,
+      'format version' => @plan.format_version || 'None',
+      'revision date' => @plan.revision_date
+    }.to_json
+
   end
 
 end
