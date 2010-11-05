@@ -4,8 +4,8 @@ gem "json"
 gem "haml"
 
 group :test do
-  gem "rspec", "~>1.3", :require => "spec"
-  gem "rack-test", "~>0.5", :require => 'rack/test'
-  gem "libxml-ruby", "~>1.1", :require => 'libxml'
+  gem "rspec"
+  gem "rack-test"
+  gem "libxml-ruby"
   gem 'ruby-debug'
 end
