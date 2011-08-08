@@ -11,7 +11,7 @@ require 'rubygems'
 require 'railsless-deploy'
 require 'bundler/capistrano'
 
-set :repository,   "http://github.com/daitss/actionplan.git"
+set :repository,   "git://github.com/daitss/actionplan.git"
 set :scm,          "git"
 set :branch,       "master"
 
