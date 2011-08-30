@@ -19,6 +19,10 @@ NS_MAP = {
   'aes' => 'http://www.aes.org/audioObject'
 }
 
+get '/status' do
+  [ 200, {'Content-Type'  => 'application/xml'}, "<status/>\n" ]
+end
+
 post %r{/(migration|normalization|xmlresolution)} do |type|
   error 400, 'object is required' unless params[:object]
 

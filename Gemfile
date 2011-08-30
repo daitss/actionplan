@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-gem "sinatra", "~>1.0"
+gem "sinatra"
 gem "json"
 gem "haml"
 
