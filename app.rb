@@ -7,7 +7,67 @@ require 'libxml'
 require 'json'
 require 'haml'
 
+require 'datyl/logger'
+require 'datyl/config'
+
 include LibXML
+include Datyl
+
+def get_config
+  raise ConfigurationError, "No DAITSS_CONFIG environment variable has been set, so there's no configuration file to read"             unless ENV['DAITSS_CONFIG']
+
+  raise ConfigurationError, "The DAITSS_CONFIG environment variable points to a non-existant file, (#{ENV['DAITSS_CONFIG']})"          unless File.exists? ENV['DAITSS_CONFIG']
+
+  raise ConfigurationError, "The DAITSS_CONFIG environment variable points to a directory instead of a file (#{ENV['DAITSS_CONFIG']})"     if File.directory? ENV['DAITSS_CONFIG']
+
+  raise ConfigurationError, "The DAITSS_CONFIG environment variable points to an unreadable file (#{ENV['DAITSS_CONFIG']})"            unless File.readable? ENV['DAITSS_CONFIG']
+
+  Datyl::Config.new(ENV['DAITSS_CONFIG'], :defaults, ENV['VIRTUAL_HOSTNAME'])
+end
+
+configure do |s|
+  config = get_config
+
+  ENV['TMPDIR'] = config.temp_directory
+
+  disable :logging        # Stop CommonLogger from logging to STDERR; we'll set it up ourselves.
+  disable :dump_errors    # Normally set to true in 'classic' style apps (of which this is one) regardless of :environment; it adds a backtrace to STDERR on all raised errors (even those we properly handle). Not so good.
+  set :environment,  :production  # Get some exceptional defaults.
+  set :raise_errors, false        # Handle our own exceptions.
+
+
+  Logger.setup('actionplan', ENV['VIRTUAL_HOSTNAME'])
+
+  if not (config.log_syslog_facility or config.log_filename)
+    Logger.stderr # log to STDERR
+  end
+
+  Logger.facility = config.log_syslog_facility if config.log_syslog_facility
+  Logger.filename = config.log_filename if config.log_filename
+
+
+  Logger.info "Starting up actionplan service"
+
+  use Rack::CommonLogger, Logger.new(:info, 'Rack:')
+
+end #of configure
+
+error do
+  e = @env['sinatra.error']
+  request.body.rewind if request.body.respond_to?('rewind') # work around for verbose passenger warning
+  Logger.err "Caught exception #{e.class}: '#{e.message}'; backtrace follows", @env
+  e.backtrace.each { |line| Logger.err line, @env }
+
+  halt 500, { 'Content-Type' => 'text/plain' }, e.message  "\n"
+end 
+
+not_found do
+  request.body.rewind if request.body.respond_to?(:rewind)
+  content_type 'text/plain'  
+
+  "Not Found\n"
+end
+
 
 get '/index' do
   # TODO form
