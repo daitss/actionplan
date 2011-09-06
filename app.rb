@@ -58,7 +58,7 @@ error do
   Logger.err "Caught exception #{e.class}: '#{e.message}'; backtrace follows", @env
   e.backtrace.each { |line| Logger.err line, @env }
 
-  halt 500, { 'Content-Type' => 'text/plain' }, e.message  "\n"
+  halt 500, { 'Content-Type' => 'text/plain' }, e.message + "\n"
 end 
 
 not_found do
