@@ -28,7 +28,7 @@ end
 configure do |s|
   config = get_config
 
-  ENV['TMPDIR'] = config.temp_directory
+  ENV['TMPDIR'] = config.temp_directory if config.temp_directory
 
   disable :logging        # Stop CommonLogger from logging to STDERR; we'll set it up ourselves.
   disable :dump_errors    # Normally set to true in 'classic' style apps (of which this is one) regardless of :environment; it adds a backtrace to STDERR on all raised errors (even those we properly handle). Not so good.
@@ -36,7 +36,7 @@ configure do |s|
   set :raise_errors, false        # Handle our own exceptions.
 
 
-  Logger.setup('Actionplan', ENV['VIRTUAL_HOSTNAME'])
+  Logger.setup('ActionPlan', ENV['VIRTUAL_HOSTNAME'])
 
   if not (config.log_syslog_facility or config.log_filename)
     Logger.stderr # log to STDERR
