@@ -45,6 +45,7 @@ configure do |s|
 
 
   Logger.info "Starting up actionplan service"
+  Logger.info "Using temp directory #{ENV['TMPDIR']}"
 
   use Rack::CommonLogger, Logger.new(:info, 'Rack:')
 
