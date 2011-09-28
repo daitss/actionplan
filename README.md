@@ -78,9 +78,11 @@ Example:
 * HTTP POST request to get the normalization identifier for the object described the file 'premis.xml' where the
   premis.xml is the output from the description service, see http://description.fcla.edu/.  If there is no
   normalization identifier defined for the format described in the premis.xml, action plan service will return 404 not found. 
-  curl -d "object=`cat premis.xml`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/normalization
+  
+curl -d "object=`cat premis.xml`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/normalization
 
 * HTTP POST request to get the migration identifier for the object described the file 'premis.xml' where the
   premis.xml is the output from the description service, see http://description.fcla.edu/.  If there is no
   migration identifier defined for the format described in the premis.xml, action plan service will return 404 not found.
-  curl -d "object=`cat premis.xml`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/migration
+  
+curl -d "object=`cat premis.xml`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/migration
