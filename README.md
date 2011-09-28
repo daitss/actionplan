@@ -66,6 +66,7 @@ Usage
 -----
 For every /migration /normalization /xmlresolution post request with a form parameter description being a PREMIS file object XML,
 the action plan service will
+
 * 1. parse the PREMIS xml to extract the format and any codecs
 * 2. find an action plan that has a policy for that format/codecs
 * 3. if policy dictates transformation -> return status 303 with location field set to the URL of a transformation
@@ -73,10 +74,12 @@ the action plan service will
 	 otherwise -> return 404 because a preservation action is not found
 	
 Example:
+
 * HTTP POST request to get the normalization identifier for the object described the file 'premis.xml' where the
   premis.xml is the output from the description service, see http://description.fcla.edu/.  If there is no
   normalization identifier defined for the format described in the premis.xml, action plan service will return 404 not found. 
   curl -d "object=`cat premis.xml`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/normalization
+
 * HTTP POST request to get the migration identifier for the object described the file 'premis.xml' where the
   premis.xml is the output from the description service, see http://description.fcla.edu/.  If there is no
   migration identifier defined for the format described in the premis.xml, action plan service will return 404 not found.
