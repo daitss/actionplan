@@ -9,10 +9,12 @@ Each format action plan is implemented as an XML document optionally with embedd
 instructions defines the format transformation identifier on a given format, hence making the action plan “actionable”.   
 For example, AVI format action plan may dictate that avi files with various audio and video encodings will be normalized into an 
 avi file with Motion JPEG video and PCM audio encoding.  The AVI format action plan would be embedded with a processing instruction like this,
-<normalization>
-  Yes
-  <transformation id="avi_norm"/>
-</normalization>
+
+	<normalization>
+  		Yes
+  		<transformation id="avi_norm"/>
+	</normalization>
+
 to normalize avi files according to the defined "avi_norm" transformation identifier.  The avi_norm shall be 
 a defined transformation in the DAITSS Transformation Service to carry out the actual format transformation.
 
