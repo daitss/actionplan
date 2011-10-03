@@ -5,16 +5,16 @@ given PREMIS document describing the characteristic of a file, and render the fo
 The format transformation identifier is then passed to DAITSS Transformation Service to carry out the format transformation.  
 
 A format action plan spec out the format specific preservation strategies such as migration and normalization for an institution.
-Each format action plans are implemented as an XML document optionally with embedded processing instructions.  The embedded processing 
+Each format action plan is implemented as an XML document optionally with embedded processing instructions.  The embedded processing 
 instructions defines the format transformation identifier on a given format, hence making the action plan “actionable”.   
 For example, AVI format action plan may dictate that avi files with various audio and video encodings will be normalized into an 
-avi file with MJPEG and PCM encoding.  The AVI format action plan would be embedded with a processing instruction like this,
+avi file with Motion JPEG video and PCM audio encoding.  The AVI format action plan would be embedded with a processing instruction like this,
 <normalization>
   Yes
   <transformation id="avi_norm"/>
 </normalization>
 to normalize avi files according to the defined "avi_norm" transformation identifier.  The avi_norm shall be 
-a defined transformation in the Transformation Service to be used to carry out the actual format transformation.
+a defined transformation in the DAITSS Transformation Service to carry out the actual format transformation.
 
 
 Requirements
