@@ -46,7 +46,7 @@ Added Ingest Processing and Significant Properties sections.
       No
     </normalization>
     <xmlresolution>
-      http://localhost:7000/xmlresolution
+	  Yes
     </xmlresolution>
   </ingest-processing>
   <significant-properties>
