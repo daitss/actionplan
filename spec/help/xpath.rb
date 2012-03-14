@@ -2,7 +2,7 @@ require "libxml"
 
 include LibXML
 
-Spec::Matchers.define :have_xpath do |xpath|
+RSpec::Matchers.define :have_xpath do |xpath|
   
   match do |resp|
     doc = XML::Document.string resp.body
