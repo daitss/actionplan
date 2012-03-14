@@ -2,11 +2,11 @@ require "rubygems"
 require "bundler"
 Bundler.setup
 
-require 'spec'
+require 'rspec'
 require 'rack/test'
 require "help/xpath"
 
-Spec::Runner.configure do |conf|
+RSpec.configure do |conf|
   conf.include Rack::Test::Methods
 end
 
