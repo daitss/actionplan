@@ -117,7 +117,7 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
 
   if format_version
     potential_plans.reject! { |p| p.format_version != format_version }
-    not_found "action plan for #{format} #{version} not found" if potential_plans.empty?
+    not_found "action plan for #{format} #{format_version} not found" if potential_plans.empty?
   else
     potential_plans.reject! { |p| p.format_version }
     not_found "action plan for #{format} not found" if potential_plans.empty?
