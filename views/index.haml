@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Action Plan
+
+  - ActionPlan::PLANS.each do |p|
+    %tr
+      - anchor = (p.format_version ? "#{p.format} (#{p.format_version})" : p.format) 
+      - format = CGI::escape(p.format)
+      %td
+        %a{:href => "/actionplan/#{format}/#{p.format_version}"}= anchor
