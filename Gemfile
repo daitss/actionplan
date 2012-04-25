@@ -5,10 +5,12 @@ gem "haml"
 
 gem "datyl", :git => "git://github.com/daitss/datyl.git"
 gem "log4r"
+gem "libxml-ruby"
+gem "libxslt-ruby", "<=1.0.1", :require => 'libxslt'
 
 group :test do
+  gem "thin"
   gem "rspec"
   gem "rack-test"
-  gem "libxml-ruby"
   gem 'ruby-debug'
 end
