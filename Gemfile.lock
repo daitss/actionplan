@@ -1,40 +1,45 @@
 GIT
   remote: git://github.com/daitss/datyl.git
-  revision: 53f8c8142a0e2df2fa3a1df0095abb8646ab0483
+  revision: 426c36df31f415632daf31f1194d5aeb3e1008de
   specs:
-    datyl (0.1.2)
+    datyl (0.1.4)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    columnize (0.3.4)
+    columnize (0.3.6)
     diff-lcs (1.1.3)
-    haml (3.1.2)
-    json (1.5.3)
+    haml (3.1.4)
+    json (1.6.5)
     libxml-ruby (2.2.2)
+    libxslt-ruby (1.0.1)
+      libxml-ruby (>= 2.0.2)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
-    log4r (1.1.9)
-    rack (1.3.2)
+    log4r (1.1.10)
+    rack (1.4.1)
+    rack-protection (1.2.0)
+      rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rbx-require-relative (0.0.5)
-    rspec (2.6.0)
-      rspec-core (~> 2.6.0)
-      rspec-expectations (~> 2.6.0)
-      rspec-mocks (~> 2.6.0)
-    rspec-core (2.6.4)
-    rspec-expectations (2.6.0)
+    rbx-require-relative (0.0.9)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.6.0)
+    rspec-mocks (2.8.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
-    sinatra (1.2.6)
-      rack (~> 1.1)
-      tilt (< 2.0, >= 1.2.2)
+    sinatra (1.3.2)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
     tilt (1.3.3)
 
 PLATFORMS
@@ -45,6 +50,7 @@ DEPENDENCIES
   haml
   json
   libxml-ruby
+  libxslt-ruby (<= 1.0.1)
   log4r
   rack-test
   rspec

@@ -9,7 +9,6 @@ gem "libxml-ruby"
 gem "libxslt-ruby", "<=1.0.1", :require => 'libxslt'
 
 group :test do
-  gem "thin"
   gem "rspec"
   gem "rack-test"
   gem 'ruby-debug'
