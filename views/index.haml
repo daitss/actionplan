@@ -1,10 +1,17 @@
 %table
   %tr
     %th Action Plan
-
+    %th Implementation Date
+    %th Revision Date
+    %th Last Review
+    %th Next Review
   - ActionPlan::PLANS.each do |p|
     %tr
+      - format = CGI::escape(CGI::escape(p.format))
       - anchor = (p.format_version ? "#{p.format} (#{p.format_version})" : p.format) 
-      - format = CGI::escape(p.format)
       %td
         %a{:href => "/actionplan/#{format}/#{p.format_version}"}= anchor
+      %td= p.implementation_date
+      %td= p.revision_date
+      %td= p.review_date
+      %td= p.next_review
