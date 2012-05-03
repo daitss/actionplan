@@ -1,0 +1,24 @@
+%html
+  %head
+  %link{:href => "http://fonts.googleapis.com/css?family=Droid+Sans+Mono",:rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold",:rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold,italic,bolditalic",:rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Lobster+serif:regular", :rel => "stylesheet", :type => "text/css" }  
+  %link{:rel => "stylesheet", :href => "/css/stylesheet.css", :type =>"text/css", :media =>"screen, projection"}
+
+  %title
+    DAITSS Action Plan Service
+  %meta{'http-equiv' => 'Content-Type', :content => 'text/html', :charset => 'utf-8'}
+
+%body
+  %div{:class => "header"} 
+    %h1 Action Plan Service
+    %h3 preservation treatment for each format 
+
+  #content
+    =yield
+
+    %div{:class => "push"}
+  %div{:class => "footer"}
+    %span{:id => "download"}
+      %a{:href => 'http://github.com/daitss/actionplan'} DAITSS Action Plan Service
