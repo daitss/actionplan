@@ -3,7 +3,7 @@
 	<implementation-date>2005.12.01</implementation-date>
 	<revision-date>2010.09.16</revision-date>	
 	<review-date>2009.06.01</review-date>
-	<next-review>2012.06.01</next-review>
+	<next-review>2012.06</next-review>
 	<ingest-processing>
 		<identification>Yes</identification>
 		<validation>Yes. Format validation is based on the rules described in section 1.14
