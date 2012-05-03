@@ -84,7 +84,7 @@ end
 
 # render the action plan for the format + format_verion
 get '/actionplan/:format/:format_version' do |format, format_version|
-  plans = ActionPlan::PLANS.select { |p| p.format == CGI::unescape(format) }
+  plans = ActionPlan::PLANS.select { |p| p.format == CGI::unescape(CGI::unescape(format)) }
   if format_version 
     plans = plans.select {|p| p.format_version == format_version}
   end
@@ -94,7 +94,7 @@ end
 
 #render the action plan of the specified format
 get '/actionplan/:format/' do |format|
-  plans = ActionPlan::PLANS.select { |p| p.format == CGI::unescape(format) }
+  plans = ActionPlan::PLANS.select { |p| p.format == CGI::unescape(CGI::unescape(format)) }
   plan = plans.first
   plan.to_html
 end
