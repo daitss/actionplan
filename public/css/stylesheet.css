@@ -46,20 +46,49 @@ html, body {
 	padding:0px 20px	
 }
 
-table th {
-    background-color: #364046;
+table.display thead th {
+	padding: 3px 18px 3px 10px;
+    background-color: #696969;	
     color: white;
-    font-weight: bold;
-    padding: 0em 2em
+	font-weight: bold;
+	cursor: pointer;
+	* cursor: hand;
 }
 
-table td {
-    padding: 0em 2em;
-    color: $dark_gray;
-    font-family: "Droid Sans";
-    background-color: #E4E9E4
+table.display tr.odd.gradeA {
+	background-color: #FFFAF0;
 }
 
+table.display tr.even.gradeA {
+	background-color: #F8F8FF;
+}
+
+table.dataTable {
+	margin: 0 auto;
+	clear: both;
+	width: 100%;
+}
+
+.dataTables_length {
+	width: 40%;
+	float: left;
+}
+
+.dataTables_filter {
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+
+.dataTables_info {
+	width: 60%;
+	float: left;
+}
+
+.dataTables_paginate {
+	float: right;
+	text-align: right;
+}
 .footer, .push {
 	height: 2em;
 }
