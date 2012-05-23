@@ -30,7 +30,7 @@ end
 
 desc "deploy to development site (actionplan.retsina.fcla.edu)"
 task :retsina do
-    sh "cap deploy -S target=retsina.fcla.edu:/opt/web-services/sites/actionplan -S who=#{user}:#{user}"
+    sh "cap deploy -S target=retsina.fcla.edu:/opt/web-services/sites/actionplan -S who=daitss:daitss"
 end
 
 desc "deploy to development site (actionplan.marsala.fcla.edu)"

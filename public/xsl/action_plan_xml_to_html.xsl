@@ -6,7 +6,27 @@
     <h1>
       <xsl:value-of select="@format"/>
       (<xsl:value-of select="@format-version"/>)
+      Action Plan
     </h1>
+
+	<h3>implementation-date : 
+		<xsl:apply-templates select="implementation-date"/>
+	</h3>
+
+
+	<h3>revision-date : 
+		<xsl:apply-templates select="revision-date"/>
+	</h3>
+
+
+	<h3>review-date : 
+		<xsl:apply-templates select="review-date"/>
+	</h3>
+	
+	<h3>next-review : 
+		<xsl:apply-templates select="next-review"/>
+	</h3>
+    <hr/>
 
     <h2>Ingest Processing</h2>
     <dl class="ingest-processing">

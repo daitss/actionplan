@@ -1,0 +1,38 @@
+%html
+  %head
+  %meta{'http-equiv' => 'Content-Type', :content => 'text/html', :charset => 'utf-8'}
+
+  %link{:href => "http://fonts.googleapis.com/css?family=Droid+Sans+Mono",:rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold",:rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold,italic,bolditalic",:rel => "stylesheet", :type => "text/css"}
+  %link{:href => "http://fonts.googleapis.com/css?family=Lobster+serif:regular", :rel => "stylesheet", :type => "text/css" }  
+  %link{:rel => "stylesheet", :href => "/css/stylesheet.css", :type =>"text/css", :media =>"screen, projection"}
+
+  %script{:type => 'text/javascript', :src => '/js/jquery.js'}
+  %script{:type => 'application/javascript', :src => '/js/document.js'}
+  %script{:class=> "jsbin", :src=>"http://datatables.net/download/build/jquery.dataTables.nightly.js"}
+
+  %title
+    DAITSS Action Plan Service
+
+
+%body
+  %div{:class => "header"} 
+    %h1 Action Plan Service
+    %h3 preservation treatment for each format 
+
+  %p
+    An action plan is an xml document which specifies how the format will be treated in the short-term and in the longer-term, 
+    and when the plan will be reviewed.  These treatments might include "forward migration" - converting the format to a newer 
+    version of the same format, e.g. PDF 1.2 to PDF 2.0. Or they might include "normalization" - converting the format to 
+    a different format that may be easier to preserve, e.g. PDF 1.4 to PDF/A. In all cases, the file in its original 
+    format and version, will be archived in addition to any migrated or normalized file formats.
+  %br
+
+  #content
+    =yield
+
+    %div{:class => "push"}
+  %div{:class => "footer"}
+    %span{:id => "download"}
+      %a{:href => 'http://github.com/daitss/actionplan'} DAITSS Action Plan Service

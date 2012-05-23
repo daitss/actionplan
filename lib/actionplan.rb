@@ -1,4 +1,5 @@
 require 'libxml'
+require 'libxslt'
 
 include LibXML
 
@@ -28,11 +29,40 @@ module ActionPlan
       n = @xml_doc.find_first('/action-plan/@format-version')
       n.value if n
     end
-
+    
+    def implementation_date
+      node= @xml_doc.find_first('/action-plan/implementation-date')
+      node.content if node
+    end
+    
+    def revision_date
+      node = @xml_doc.find_first('/action-plan/revision-date')
+      node.content if node
+    end
+    
+    def review_date
+      node= @xml_doc.find_first('/action-plan/review-date')
+      node.content if node
+    end
+    
+    def next_review
+      node = @xml_doc.find_first('/action-plan/next-review')
+      node.content if node
+    end
+    
     def to_xml
       @xml_doc.to_s
     end
 
+    def to_html
+      stylesheet_doc = open("public/xsl/action_plan_xml_to_html.xsl") { |io| LibXML::XML::Document::io io }
+      stylesheet = LibXSLT::XSLT::Stylesheet.new stylesheet_doc
+      # apply the xslt
+      stylesheet.apply(@xml_doc).to_s
+      
+    	#$action_plan_to_html.apply(@xml_doc).to_s
+	  end
+	  
     def migration codec=nil
 
       xpath = if codec
