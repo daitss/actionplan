@@ -32,26 +32,26 @@ Requirements
 Quickstart
 ----------
 1. Retrieve a copy of the action plan service.  You can either create a local git clone of the action plan service, ex.
-    % git clone https://github.com/daitss/actionplan
+   * git clone https://github.com/daitss/actionplan
 or download a copy from the download page.
 
 2. Install all the required gems according to the Gemfile in this project.  It is suggested to use the --path command line variable to install the gems inside the bundle directory
-    % bundle install --path bundle
+   * bundle install --path bundle
 
 3. Add lib/ path to RUBYLIB environment variable
-    % export RUBYLIB=lib:$RUBYLIB
+   * export RUBYLIB=lib:$RUBYLIB
 
 4. Set DAITSS_CONFIG and VIRTUAL_HOSTNAME environment variable
-   %export DAITSS_CONFIG=daitss-config.example
-   %export VIRTUAL_HOSTNAME=actionplan.example.org
+   * export DAITSS_CONFIG=daitss-config.example
+   * export VIRTUAL_HOSTNAME=actionplan.example.org
 
    Please refer to DAITSS documentations for the description of these two environment variables.
 
 5. Test the installation via the test harness. 
-    %rspec spec/
+   * rspec spec/
 
 6. Run the action plan service with thin (use "thin --help" to get additional information on using thin)
-    % bundle exec thin start
+   * bundle exec thin start
 
 
 License
@@ -93,4 +93,4 @@ Example:
   premis.xml is the output from the description service, see http://description.fcla.edu/.  If there is no
   migration identifier defined for the format described in the premis.xml, action plan service will return 404 not found.
   
-	curl -d "object=`cat premis.xml`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/migration
+	curl -d "object=\`cat premis.xml\`&event-id-type=URL&event-id-value=info:fda/event/1" http://actionplan.fda.edu/migration
