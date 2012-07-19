@@ -19,7 +19,7 @@
       %tr{:class=>"gradeA"}
         - format = CGI::escape(CGI::escape(p.format))
         - anchor = (p.format_version ? "#{p.format} (#{p.format_version})" : p.format) 
-        - report = CGI::escape(p.bg_report)
+        - report = CGI::escape(CGI::escape(p.bg_report))
         %td
           %a{:href => "/actionplan/#{format}/#{p.format_version}"}= anchor
         %td

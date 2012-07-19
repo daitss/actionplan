@@ -103,7 +103,8 @@ end
 
 # select the background report for the format + format_verion
 get '/bg_report/:filename' do |fname|
-  haml :pdfviewer, :locals => {:filename => "#{fname}"}
+  unescapedname = CGI::unescape(CGI::unescape(fname))
+  haml :pdfviewer, :locals => {:filename => "#{unescapedname}"}
 end
 
 
