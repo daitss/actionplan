@@ -19,8 +19,19 @@ module ActionPlan
       dtd_file = File.join File.dirname(__FILE__), '..', 'public', 'dtd', 'actionplan.dtd'
       dtd = File.open(dtd_file) { |io| XML::Dtd.new io.read }
       raise 'invalid' unless  @xml_doc.validate(dtd)
+  
     end
 
+    # set the path of the background report for this action plan
+    def set_bg_report action_plan_file
+      filename = File.basename(action_plan_file, ".xml")
+      @bg_report = "/bg_reports/#{filename}.pdf"
+    end
+    
+    def bg_report
+      @bg_report
+    end
+    
     def format
       @xml_doc.find_first('/action-plan/@format').value
     end
@@ -112,11 +123,13 @@ module ActionPlan
     plans = files.inject([]) do |acc, file|
       plan = open(file) { |io| Plan.new io.read }
       raise "#{file} seems to be a duplicate actionplan for #{plan.format}" if acc.any? { |p| p.format == plan.format and p.format_version == plan.format_version }
+      plan.set_bg_report(file)
       acc << plan
     end
 
   end
+  
   module_function :load_action_plans
 
-  PLANS = load_action_plans
+  PLANS = load_action_plans   
 end

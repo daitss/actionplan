@@ -1,7 +1,15 @@
+%p 
+  DAITSS uses PRONOM format identification scheme to identify file format.  For a list of recognized file formats, please visit 
+  %a{:href => 'http://www.nationalarchives.gov.uk/PRONOM/Format/proFormatSearch.aspx?status=new'} PRONOM.
+%br
+%p The following table can be sorted by clicking on the column header.
+%br
+
 %table{:class=>"display", :id=>"example"}
   %thead
     %tr
       %th Action Plan
+      %th Background Report
       %th Implementation Date
       %th Revision Date
       %th Last Review
@@ -11,8 +19,11 @@
       %tr{:class=>"gradeA"}
         - format = CGI::escape(CGI::escape(p.format))
         - anchor = (p.format_version ? "#{p.format} (#{p.format_version})" : p.format) 
+        - report = CGI::escape(p.bg_report)
         %td
           %a{:href => "/actionplan/#{format}/#{p.format_version}"}= anchor
+        %td
+          %a{:href => "/bg_report/#{report}"}= anchor
         %td= p.implementation_date
         %td= p.revision_date
         %td= p.review_date

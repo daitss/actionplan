@@ -13,6 +13,8 @@ require 'datyl/config'
 include LibXML
 include Datyl
 
+set :prawn, { :page_layout => :landscape }
+
 def get_config
   raise "No DAITSS_CONFIG environment variable has been set, so there's no configuration file to read"             unless ENV['DAITSS_CONFIG']
 
@@ -98,6 +100,12 @@ get '/actionplan/:format/' do |format|
   plan = plans.first
   plan.to_html
 end
+
+# select the background report for the format + format_verion
+get '/bg_report/:filename' do |fname|
+  haml :pdfviewer, :locals => {:filename => "#{fname}"}
+end
+
 
 post %r{/(migration|normalization|xmlresolution)} do |type|
   error 400, 'object is required' unless params[:object]
