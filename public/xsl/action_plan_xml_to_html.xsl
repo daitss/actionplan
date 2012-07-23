@@ -77,25 +77,6 @@
     <dd>
       <xsl:value-of select="text()"/>
     </dd>
-    <xsl:for-each select="transformation">
-      <dd class="transformation">
-        <a>
-          <xsl:attribute name="href">
-            <xsl:value-of select="@url"/>
-          </xsl:attribute>
-
-          <xsl:choose>
-            <xsl:when test="@codec">
-              <xsl:value-of select="@codec"/>
-            </xsl:when>
-            <xsl:otherwise>
-              default
-            </xsl:otherwise>
-          </xsl:choose>
-          transformation
-        </a>
-      </dd>
-    </xsl:for-each>
   </xsl:template>
 
   <xsl:template match="content|context|behavior|structure|appearance">
