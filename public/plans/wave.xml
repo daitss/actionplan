@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="Waveform Audio">
+  <confidence-level>High: PCM, Low: compressed</confidence-level>
   <implementation-date>2005.12.01</implementation-date>
-  <revision-date>2010.09.16</revision-date>
+  <revision-date>2012.08.01</revision-date>
   <review-date>2009.06</review-date>
   <next-review>2012.06</next-review>
   <ingest-processing>
@@ -20,8 +21,18 @@
       No
     </migration>
     <normalization>
+      Yes
+	  <AudioStreams>
       Each audio stream contained in the WAVE file is normalized into an
       uncompressed PCM(LPCM) audio stream with a sample size of 16 bits/sample.
+      The normalized audio stream will have the same sample rate (samples/second) as the original 
+      audio stream in the WAVE files.
+	  <stream>
+         <format>LPCM</format>
+         <code>0x0001</code>
+         <normalized-stream>Not Applicable</normalized-stream>
+      </stream>
+      </AudioStreams>
       <transformation codec="LPCM" id="wave_norm"/>
       <transformation codec="PCM"  id="wave_norm"/>
     </normalization>
@@ -52,6 +63,7 @@
     </original>
     <normalized>
       Normalized version will not be migrated.
+      <normalized-audio>Migrate to an open, standardized and well supported audio stream format that is losslessly compressed.</normalized-audio>
     </normalized>
   </long-term-strategy>
   <short-term-actions>
@@ -60,4 +72,7 @@
   <note>
     1. InSPECT, “Framework for the definition of significant Properties”, February 5, 2008
   </note>
+  <footnote>
+    This action plan is currently under discussion and is subject to change.
+  </footnote>
 </action-plan>

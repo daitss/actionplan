@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="AIFF-C" format-version="1.0">
+	<confidence-level>High: PCM, Low: compressed</confidence-level>
 	<implementation-date>TBD</implementation-date>
-	<revision-date>2010.09.16</revision-date>
+	<revision-date>2012.08.01</revision-date>
 	<review-date>2007.10.08</review-date>
 	<next-review>2009.10</next-review>
 	<ingest-processing>
 		<identification>
-			Yes
-		</identification>
+	  Yes
+    </identification>
 		<validation>
-			Yes
-		</validation>
+      Yes
+	</validation>
 		<characterization>
-			Yes
-		</characterization>
+	  Yes
+	</characterization>
 		<migration>
-			No
-		</migration>
+	  No
+	</migration>
 		<normalization>
-			Yes
+	  Yes
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
@@ -27,7 +28,7 @@
 		</content>
 		<context>
 			TBD
-		</context> 
+		</context>
 		<behavior>TBD
 		</behavior>
 		<structure>
@@ -37,25 +38,24 @@
 			TBD
 		</appearance>
 	</significant-properties>
-
 	<long-term-strategy>
-		<original>
-			If a normalized version was created for the original, then the original will be    				preserved in bit-level
-               only. If a normalized version was not created for the original, migrate the original to a non-    			lossy,
-		open audio format when one is found is to be a good successor to the AIFF-C format.
-		</original>
-		<normalized>
-			Migrate the normalized version to its successor format (when one is determined to be the
-		successor).
-		</normalized>
-
+      <original>
+      If a normalized version was created for the original, then the original will be preserved in bit-level
+      only. If a normalized version was not created for the original, migrate the original to a non-lossy,
+      open audio format when one is found is to be a good successor to the AIFF-C format.
+      </original>
+      
+      <normalized>
+      Migrate the normalized version to its successor format (when one is determined to be the successor).
+      </normalized>
 	</long-term-strategy>
-
- 	<short-term-actions>
-    		<action>
-      			Write converters from AIFF-C files with data in one of a limited number of compression
+	<short-term-actions>
+		<action>
+      	Write converters from AIFF-C files with data in one of a limited number of compression
 		algorithms (TBD) to AIFF files.
-    		</action>
- 	</short-term-actions>
+    	</action>
+	</short-term-actions>
+    <footnote>
+      This action plan is currently under discussion and is subject to change.
+    </footnote>	
 </action-plan>
-

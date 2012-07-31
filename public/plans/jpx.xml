@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="JPX" format-version="1.0">
+    <confidence-level>Low</confidence-level>
 	<implementation-date>2005.12.01</implementation-date>
-	<revision-date>2010.09.16</revision-date>	
+	<revision-date>2012.08.01</revision-date>	
 	<review-date>2008.01.07</review-date>
 	<next-review>2012.01</next-review>
 	<ingest-processing>
@@ -20,11 +21,14 @@
 	</significant-properties>
 	<long-term-strategy>
 		<original>
-	    Migrate to newer JPX versions or to a format that shares the essential and distinguishing characteristics of
-	    the JPX specification.
+      Migrate to newer JPX versions or to a format that shares the essential and distinguishing 
+      characteristics of the JPX specification.
 		</original>
 	</long-term-strategy>
 	<short-term-actions>
 		<action>None</action>
 	</short-term-actions>
+    <footnote>
+      This action plan is currently under discussion and is subject to change.
+    </footnote>	
 </action-plan>

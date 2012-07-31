@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="PRO">
+    <confidence-level>Medium</confidence-level>
 	<implementation-date>2007.05.04</implementation-date>
-	<revision-date>2010.09.16</revision-date>	
+	<revision-date>2012.08.01</revision-date>	
 	<review-date>2007.10.05</review-date>
 	<next-review>2010.10</next-review>
 	<ingest-processing>
@@ -40,13 +41,13 @@
 	</significant-properties>
 
 	<long-term-strategy>
-		<original>
-			PRO files will be preserved “as-is”.
-		</original>
+	<original>
+      PRO files will be preserved “as-is”.
+	</original>
 
-		<normalized>
-			Not applicable
-		</normalized>
+	<normalized>
+      Not applicable
+	</normalized>
 	</long-term-strategy>
 
 	<short-term-actions>
@@ -54,6 +55,8 @@
 			No action
 		</action>
 	</short-term-actions>
-	<note></note>
+    <footnote>
+      This action plan is currently under discussion and is subject to change.
+    </footnote>
 </action-plan>
 
