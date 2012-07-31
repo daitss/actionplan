@@ -41,6 +41,11 @@ module ActionPlan
       n.value if n
     end
     
+    def confidence_level
+      node= @xml_doc.find_first('/action-plan/confidence-level')
+      node.content if node
+    end
+    
     def implementation_date
       node= @xml_doc.find_first('/action-plan/implementation-date')
       node.content if node
@@ -66,7 +71,7 @@ module ActionPlan
     end
 
     def to_html
-      stylesheet_doc = open("public/xsl/action_plan_xml_to_html.xsl") { |io| LibXML::XML::Document::io io }
+      stylesheet_doc = open("public/xsl/to_html.xsl") { |io| LibXML::XML::Document::io io }
       stylesheet = LibXSLT::XSLT::Stylesheet.new stylesheet_doc
       # apply the xslt
       stylesheet.apply(@xml_doc).to_s
