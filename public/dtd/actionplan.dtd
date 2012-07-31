@@ -1,6 +1,9 @@
-<!ELEMENT action-plan (implementation-date, revision-date, review-date, next-review, ingest-processing, significant-properties, long-term-strategy, short-term-actions, note?)>
+<!ELEMENT action-plan (confidence-level, implementation-date, revision-date, review-date, next-review, ingest-processing, significant-properties, long-term-strategy, short-term-actions, note?, footnote?)>
 <!ATTLIST action-plan format CDATA #REQUIRED>
 <!ATTLIST action-plan format-version CDATA #IMPLIED>
+
+<!-- the confidence level for this format in the archive? -->
+<!ELEMENT confidence-level (#PCDATA)>
 
 <!-- when this plan is implemented in software? -->
 <!ELEMENT implementation-date (#PCDATA)>
@@ -20,12 +23,19 @@
 <!ELEMENT validation (#PCDATA)>
 <!ELEMENT characterization (#PCDATA)>
 <!ELEMENT localization (#PCDATA)>
-<!ELEMENT normalization (#PCDATA | transformation)*>
+<!ELEMENT normalization (#PCDATA | transformation | VideoStreams | AudioStreams)*>
 <!ELEMENT migration (#PCDATA | transformation)*>
 <!ELEMENT xmlresolution (#PCDATA)*>
 <!ELEMENT transformation (#PCDATA)>
 <!ATTLIST transformation codec CDATA #IMPLIED
                             id CDATA #REQUIRED>
+<!ELEMENT VideoStreams (#PCDATA|stream)*>
+<!ELEMENT stream (format, code, normalized-stream)>
+<!ELEMENT format (#PCDATA)>
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT normalized-stream (#PCDATA)>
+
+<!ELEMENT AudioStreams (#PCDATA|stream)*>
 
 <!-- significant properties of a file to be preserved -->
 <!ELEMENT significant-properties (#PCDATA |  content | context | behavior | structure | appearance)*>
@@ -40,7 +50,9 @@
 <!ELEMENT original (#PCDATA)>
 <!ELEMENT localized (#PCDATA)>
 <!ELEMENT migrated (#PCDATA)>
-<!ELEMENT normalized (#PCDATA)>
+<!ELEMENT normalized (#PCDATA | normalized-video | normalized-audio)*>
+<!ELEMENT normalized-video (#PCDATA)>
+<!ELEMENT normalized-audio (#PCDATA)>
 
 <!-- short term actions -->
 <!ELEMENT short-term-actions (action+)>
@@ -48,3 +60,4 @@
 
 <!-- any extra text to put in this action plan that is not covered above -->
 <!ELEMENT note (#PCDATA)>
+<!ELEMENT footnote (#PCDATA)>

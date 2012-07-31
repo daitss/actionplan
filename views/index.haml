@@ -14,11 +14,12 @@
       %th Revision Date
       %th Last Review
       %th Next Review
+      %th Confidence Level
   %tbody
     - ActionPlan::PLANS.each do |p|
       %tr{:class=>"gradeA"}
         - format = CGI::escape(CGI::escape(p.format))
-        - anchor = (p.format_version ? "#{p.format} (#{p.format_version})" : p.format) 
+        - anchor = (p.format_version ? "#{p.format} #{p.format_version}" : p.format) 
         - report = CGI::escape(CGI::escape(p.bg_report))
         %td
           %a{:href => "/actionplan/#{format}/#{p.format_version}"}= anchor
@@ -28,3 +29,4 @@
         %td= p.revision_date
         %td= p.review_date
         %td= p.next_review
+        %td= p.confidence_level
