@@ -163,7 +163,7 @@ describe "/normalization" do
 
   it_should_behave_like "any transformation"
 
-  it "should return proper transformation and actionplan info" do
+  it "should return wave_norm transformation and actionplan info for wave" do
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
 <object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
@@ -201,7 +201,108 @@ describe "/normalization" do
     json['codec'].should == 'PCM'
     json['format'].should == 'Waveform Audio'
     json['format version'].should == 'None'
-    json['revision date'].should == '2010.09.16'
+    json['revision date'].should == '2012.08.01'
   end
+
+   it "should return mov_norm transformation and actionplan info for mov" do
+      premis_object = <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+		<objectIdentifier>
+		<objectIdentifierType>URI</objectIdentifierType>
+		<objectIdentifierValue>http://www.fcla.edu/daitss-test/files/thesis.mov</objectIdentifierValue>
+	</objectIdentifier>
+	<objectCharacteristics>
+		<compositionLevel>0</compositionLevel>
+		<fixity>
+			<messageDigestAlgorithm>MD5</messageDigestAlgorithm>
+			<messageDigest>7c1678bf6018a79aa97be2747594cfbe</messageDigest>
+			<messageDigestOriginator>Archive</messageDigestOriginator>
+		</fixity>
+		<fixity>
+			<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+			<messageDigest>0227fcafc39a1265deb097b914d3335945623037</messageDigest>
+			<messageDigestOriginator>Archive</messageDigestOriginator>
+		</fixity>
+		<size>1400682</size>
+		
+		<format>
+			<formatDesignation>
+				<formatName>Quicktime</formatName>
+				
+			</formatDesignation>
+			
+			<formatRegistry>
+				<formatRegistryName>http://www.nationalarchives.gov.uk/pronom</formatRegistryName>
+				<formatRegistryKey>x-fmt/384</formatRegistryKey>
+			</formatRegistry>	
+		</format>
+		
+	</objectCharacteristics>
+	
+	<originalName>/daitss-test/files/thesis.mov</originalName>
+</object>
+      XML
+
+      post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
+      last_response.should be_ok
+      json = JSON.parse last_response.body
+      json['normalization'].should == 'mov_norm'
+      json['format'].should == 'Quicktime'
+      json['format version'].should == 'None'
+    end
+
+       it "should return avi_norm transformation and actionplan info for avi" do
+          premis_object = <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+	<objectIdentifier>
+	<objectIdentifierType>URI</objectIdentifierType>
+	<objectIdentifierValue>http://www.fcla.edu/daitss-test/files/video.avi</objectIdentifierValue>
+</objectIdentifier>
+<objectCharacteristics>
+	<compositionLevel>0</compositionLevel>
+	<fixity>
+		<messageDigestAlgorithm>MD5</messageDigestAlgorithm>
+		<messageDigest>7c6d81db8e7aa247360f0f0d2b7da0fb</messageDigest>
+		<messageDigestOriginator>Archive</messageDigestOriginator>
+	</fixity>
+	<fixity>
+		<messageDigestAlgorithm>SHA-1</messageDigestAlgorithm>
+		<messageDigest>c4b51c9346b4eec3b461482bb11082b0f618fffe</messageDigest>
+		<messageDigestOriginator>Archive</messageDigestOriginator>
+	</fixity>
+	<size>5967872</size>
+	
+	<format>
+		<formatDesignation>
+			<formatName>Audio/Video Interleaved Format</formatName>
+			
+		</formatDesignation>
+		
+		<formatRegistry>
+			<formatRegistryName>http://www.nationalarchives.gov.uk/pronom</formatRegistryName>
+			<formatRegistryKey>fmt/5</formatRegistryKey>
+		</formatRegistry>
+		
+		
+	</format>
+	
+	
+	
+	
+</objectCharacteristics>
+
+<originalName>/daitss-test/files/video.avi</originalName>
+</object>
+      XML
+
+          post @url, :object => premis_object, 'event-id-type' => 'URI', 'event-id-value' => 'foo:bar:22'
+          last_response.should be_ok
+          json = JSON.parse last_response.body
+          json['normalization'].should == 'avi_norm'
+          json['format'].should == 'Audio/Video Interleaved Format'
+          json['format version'].should == 'None'
+        end
 
 end
