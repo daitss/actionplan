@@ -3,8 +3,8 @@
   <confidence-level>Low</confidence-level>
   <implementation-date>TBD</implementation-date>
   <revision-date>2012.08.01</revision-date>
-  <review-date>2008.03.05</review-date>
-  <next-review>2010.04</next-review>
+  <review-date>2012.08.01</review-date>
+  <next-review>2016.08</next-review>
   <ingest-processing>
     <identification>
       Yes, BIFF8 files will be identified using magic number, which is described

@@ -3,8 +3,8 @@
     <confidence-level>High: uncompressed, Medium: compressed, Low: in Planar format</confidence-level>
 	<implementation-date>2005.12.01</implementation-date>
 	<revision-date>2012.08.01</revision-date>	
-	<review-date>2009.06</review-date>
-	<next-review>2012.06</next-review>
+	<review-date>2012.08</review-date>
+	<next-review>2015.08</next-review>
 	<ingest-processing>
 		<identification>
 			Yes

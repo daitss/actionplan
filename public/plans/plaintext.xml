@@ -3,8 +3,8 @@
   <confidence-level>High: encoding: US-ASCII, UTF-8, UTF-16 with BOM; delimited text, Medium: ISO 885901 encoding</confidence-level>
   <implementation-date>2003.03.19</implementation-date>
   <revision-date>2012.07.22</revision-date>
-  <review-date>2007.08.24</review-date>
-  <next-review>2012.08</next-review>
+  <review-date>2012.08.01</review-date>
+  <next-review>2017.08</next-review>
   <ingest-processing>
     <identification>
       Yes, by parsing the entire file or the first 65536 characters for large files.

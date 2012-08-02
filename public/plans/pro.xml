@@ -3,8 +3,8 @@
     <confidence-level>Medium</confidence-level>
 	<implementation-date>2007.05.04</implementation-date>
 	<revision-date>2012.08.01</revision-date>	
-	<review-date>2007.10.05</review-date>
-	<next-review>2010.10</next-review>
+	<review-date>2012.08.01</review-date>
+	<next-review>2017.08</next-review>
 	<ingest-processing>
 		<identification>
 			Magic Number. The magic number is described in Section 1.12 of PRO action

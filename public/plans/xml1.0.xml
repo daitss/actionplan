@@ -16,8 +16,8 @@ Added Ingest Processing and Significant Properties sections.
   <confidence-level>High: includes XSD/XSL/XHTML, etc.; with included or accessible schema and character encoding explicitly specified</confidence-level>
   <implementation-date>2003.06.09</implementation-date>
   <revision-date>2012.08.01</revision-date>
-  <review-date>2008.02.01</review-date>
-  <next-review>2011.02</next-review>
+  <review-date>2012.08.01</review-date>
+  <next-review>2016.08</next-review>
   <ingest-processing>
     <identification>
       Yes, only documents conforming to the well-formedness rules defined by
@@ -38,7 +38,7 @@ Added Ingest Processing and Significant Properties sections.
     </normalization>
     <xmlresolution>
 	  Yes. An xmlresolution tarball will be created for all XML files in a package if they
-      contain at least one named reference to an external schema and
+      contain at least one named reference to an external schema/DTD/stylesheet and
       the reference can be resolved to a physical file.  
     </xmlresolution>
   </ingest-processing>
