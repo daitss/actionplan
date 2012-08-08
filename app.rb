@@ -140,7 +140,7 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
   # find the action plan
   potential_plans = ActionPlan::PLANS.select { |p| p.format == format }
   not_found "action plan for #{format} not found" if potential_plans.empty?
-
+ 
   if format_version
     potential_plans.reject! { |p| p.format_version != format_version }
     not_found "action plan for #{format} #{format_version} not found" if potential_plans.empty?

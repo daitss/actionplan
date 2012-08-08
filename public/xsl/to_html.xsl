@@ -11,9 +11,13 @@
 				<body>
 					<div id = "content">
 						<!-- Banner -->
+						<div id = "banner">
+							<h1>Action Plan </h1>
+							<h2><xsl:value-of select="@format"/></h2> <h2><xsl:value-of select="@format-version"/></h2>
+						</div>
+						<br/><hr/><br/>
 						<div id = "header">
-							<h1>Action Plan: <xsl:value-of select="@format" />  <xsl:value-of select="@format-version"/></h1>
-							<br/><hr/><br/>
+
 							<h4>Implementation Date : <xsl:apply-templates select="implementation-date"/></h4>
 							<h4>Revision Date : <xsl:apply-templates select="revision-date"/></h4>
 							<h4>Review Date : <xsl:apply-templates select="review-date"/></h4>
