@@ -1,116 +1,135 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes"/>
+	<xsl:output method="html" indent="yes"/>
 
-  <xsl:template match="/action-plan">
-    <h1>
-      <xsl:value-of select="@format"/>
-      (<xsl:value-of select="@format-version"/>)
-      Action Plan
-    </h1>
+	<xsl:template match="/action-plan">
+		<h1>
+			<xsl:value-of select="@format" /> - <xsl:value-of select="@format-version"/>
+			Action Plan
+		</h1>
 
-	<h3>implementation-date : 
-		<xsl:apply-templates select="implementation-date"/>
-	</h3>
+		<h4>implementation-date : 
+			<xsl:apply-templates select="implementation-date"/>
+		</h4>
 
+		<h4>revision-date : 
+			<xsl:apply-templates select="revision-date"/>
+		</h4>
 
-	<h3>revision-date : 
-		<xsl:apply-templates select="revision-date"/>
-	</h3>
+		<h4>review-date : 
+			<xsl:apply-templates select="review-date"/>
+		</h4>
+		
+		<h4>next-review : 
+			<xsl:apply-templates select="next-review"/>
+		</h4>
+		<hr/>
 
+		<h3>Ingest Processing</h3>
+		<dl class="ingest-processing">
+			<xsl:apply-templates select="ingest-processing/*"/>
+		</dl>
+		<hr/>
 
-	<h3>review-date : 
-		<xsl:apply-templates select="review-date"/>
-	</h3>
-	
-	<h3>next-review : 
-		<xsl:apply-templates select="next-review"/>
-	</h3>
-    <hr/>
+		<h3>Significant Properties</h3>
+		<dl class="significatn-properties">
+			<xsl:apply-templates select="significant-properties/*"/>
+		</dl>
+		<hr/>
 
-    <h2>Ingest Processing</h2>
-    <dl class="ingest-processing">
-      <xsl:apply-templates select="ingest-processing/*"/>
-    </dl>
+		<h3>Long-term Preservation Strategy</h3>
+		<dl class="long-term-strategy">
+			<xsl:apply-templates select="long-term-strategy/*"/>
+		</dl>
+		<hr/>
 
-    <hr/>
+		<h3>Short-term Actions</h3>
+		<ul class="short-term-actions">
+			<xsl:apply-templates select="short-term-actions/*"/>
+		</ul>
 
-    <h2>Significant Properties</h2>
-    <dl class="significatn-properties">
-      <xsl:apply-templates select="significant-properties/*"/>
-    </dl>
+		<xsl:if test="note">
+			<hr/>
+			<h4>Note</h4>
+			<p class="note">
+				<xsl:value-of select="note"/>
+			</p>
 
-    <hr/>
+		</xsl:if>
 
-    <h2>Long-term Preservation Strategy</h2>
-    <dl class="long-term-strategy">
-      <xsl:apply-templates select="long-term-strategy/*"/>
-    </dl>
+	</xsl:template>
 
-    <hr/>
+	<xsl:template match="identification|validation|characterization|migration">
+		<dt><xsl:value-of select="name()"/></dt>
+		<dd><xsl:value-of select="text()"/></dd>
+	</xsl:template>
 
-    <h2>Short-term Actions</h2>
-    <ul class="short-term-actions">
-      <xsl:apply-templates select="short-term-actions/*"/>
-    </ul>
+	<xsl:template match="normalization">
+		<dt><xsl:value-of select="name()"/></dt>
+		<dd><xsl:value-of select="text()"/></dd>
+		<dd>
+	    <xsl:if test="boolean(VideoStreams)">
+		<br/>		
+		<xsl:value-of select="VideoStreams/text()"/>
+		<table border="1">
+			<caption>Supported Video Stream Format</caption>
+			<tr>
+		      <th>Supported Video Stream Format</th>
+		      <th>FOURCC</th>
+		      <th>Normalized Video Stream</th>		
+		    </tr>
+			<xsl:for-each select="VideoStreams/stream">
+				<tr>
+					<td><xsl:value-of select="format"/></td>
+					<td><xsl:value-of select="code"/></td>
+					<td><xsl:value-of select="normalized-stream"/></td>
+				</tr>
+			</xsl:for-each>
+		</table>
+   	    </xsl:if>
+	    </dd>
+		<dd>
+		<xsl:if test="boolean(AudioStreams)">
+		<br/>
+		<xsl:value-of select="AudioStreams/text()"/>
+		<table border="1">
+			<tr>
+		      <th>Supported Audio Stream Format</th>
+		      <th>Format Tag</th>
+		      <th>Normalized Audio Stream</th>		
+		    </tr>
+			<xsl:for-each select="AudioStreams/stream">
+				<tr>
+					<td><xsl:value-of select="format"/></td>
+					<td><xsl:value-of select="code"/></td>
+					<td><xsl:value-of select="normalized-stream"/></td>
+				</tr>
+			</xsl:for-each>
+		</table>
+	    </xsl:if>
+	    </dd>	
+	</xsl:template>
+	<xsl:template match="content|context|behavior|structure|appearance">
+			<dt><xsl:value-of select="name()"/></dt>
+			<dd><xsl:value-of select="text()"/></dd>
+	</xsl:template>
 
-    <xsl:if test="note">
+	<xsl:template match="original|migrated|normalized">
+		<dt><xsl:value-of select="name()"/></dt>
+		<dd><xsl:value-of select="text()"/></dd>
+		<dd><xsl:if test="boolean(normalized-video)">
+			Video Stream: <xsl:value-of select="normalized-video/text()"/>
+			</xsl:if>
+		</dd>
+		<dd><xsl:if test="boolean(normalized-audio)">
+			Audio Stream: <xsl:value-of select="normalized-audio/text()"/>
+			</xsl:if>
+		</dd>
+	</xsl:template>
 
-      <hr/>
-
-      <h3>Note</h3>
-      <p class="note">
-        <xsl:value-of select="note"/>
-      </p>
-
-    </xsl:if>
-
-  </xsl:template>
-
-  <xsl:template match="identification|validation|characterization|localization">
-    <dt><xsl:value-of select="name()"/></dt>
-    <dd><xsl:value-of select="text()"/></dd>
-  </xsl:template>
-
-  <xsl:template match="migration|normalization">
-    <dt><xsl:value-of select="name()"/></dt>
-    <dd>
-      <xsl:value-of select="text()"/>
-    </dd>
-    <xsl:for-each select="transformation">
-      <dd class="transformation">
-        <a>
-          <xsl:attribute name="href">
-            <xsl:value-of select="@url"/>
-          </xsl:attribute>
-
-          <xsl:choose>
-            <xsl:when test="@codec">
-              <xsl:value-of select="@codec"/>
-            </xsl:when>
-            <xsl:otherwise>
-              default
-            </xsl:otherwise>
-          </xsl:choose>
-          transformation
-        </a>
-      </dd>
-    </xsl:for-each>
-  </xsl:template>
-
-  <xsl:template match="content|context|behavior|structure|appearance">
-    <dt><xsl:value-of select="name()"/></dt>
-    <dd><xsl:value-of select="text()"/></dd>
-  </xsl:template>
-
-  <xsl:template match="original|migrated|normalized">
-    <dt><xsl:value-of select="name()"/></dt>
-    <dd><xsl:value-of select="text()"/></dd>
-  </xsl:template>
-
-  <xsl:template match="action">
-    <li><xsl:value-of select="text()"/></li>
-  </xsl:template>
+	<xsl:template match="action">
+			<li><xsl:value-of select="text()"/></li>
+	</xsl:template>
 
 
 </xsl:stylesheet>

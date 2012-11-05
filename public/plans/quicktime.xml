@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<action-plan format="QUICKTIME">
+<action-plan format="Quicktime">
+  <confidence-level>High: uncompressed motion JPEG, Low: others</confidence-level>
   <implementation-date>2006.01.24</implementation-date>
-  <revision-date>2010.09.16</revision-date>
+  <revision-date>2012.08.01</revision-date>
   <review-date>2008.01.07</review-date>
   <next-review>2012.01</next-review>
   <ingest-processing>
@@ -19,6 +20,41 @@
     </migration>
     <normalization>
       Yes
+      <VideoStreams>
+	  Each supported video stream contained in a QuickTime movie file will be normalized into a motion 
+	  JPEG-A video stream which contains a sequence of JPEG images.  The normalized motion JPEG-A video 
+	  stream will have the same video dimension and playback rate as the original video stream.  
+      <stream>
+          <format>CinePak</format>
+          <code>CVID</code>
+          <normalized-stream>Motion JPEG (MJPA)</normalized-stream>
+       </stream>
+       <stream>
+          <format>Motion JPEG</format>
+          <code>MJPA</code>
+          <normalized-stream>Not Applicable</normalized-stream>
+       </stream>
+       <stream>
+          <format>Graphics</format>
+          <code>SMC</code>
+          <normalized-stream>Motion JPEG (MJPA)</normalized-stream>
+       </stream>
+       <stream>
+          <format>Advanced Video Coding</format>
+          <code>AVC1</code>
+          <normalized-stream>Motion JPEG (MJPA)</normalized-stream>
+       </stream>
+      </VideoStreams>
+	  <AudioStreams>
+	    Each audio stream in a QuickTime movie file will be normalized 
+	    into an uncompressed audio stream with the same sample size and sample rate.
+	    The normalized video and audio streams will be multiplexed back into a QuickTime movie file.
+	    <stream>
+           <format>Uncompressed</format>
+           <code>NONE</code>
+           <normalized-stream>Not Applicable</normalized-stream>
+        </stream>
+	  </AudioStreams>	
       <transformation id="mov_norm"/>
     </normalization>
   </ingest-processing>
@@ -41,17 +77,21 @@
 
   <long-term-strategy>
     <original>
-      Migrate to an open, standardized and well supported multimedia file format that is to be a good successor for the QuickTime file format.
+      Migrate to an open, standardized and well supported multimedia file format that is to be a good 
+      successor for the QuickTime file format.
+
       No normalized version will be created for QuickTime movie files. However, each video/audio
-      stream contained in a QuickTime file will be normalized according to the Action Plan for FDA
-      Supported Video/Audio Stream Formats. If the encoded video/audio stream is not in the list of
-      FDA supported video/audio stream formats for QuickTime movie file, the video/audio stream
+      stream contained in a QuickTime file will be normalized according to the normalization section  
+      in the ingest processing. If the encoded video/audio stream is not in the list of
+      supported video/audio stream formats for QuickTime movie file, the video/audio stream
       will not be normalized and it will be preserved as bit-level.
     </original>
 
     <normalized>
       Not applicable for QuckTime file format. For the normalized video and audio stream formats,
       please see the Action Plan for FDA Supported Video/Audio Stream Formats.
+      <normalized-video>Migrate to an open, standardized and well supported video encoding format that does not use interframes  (temporal compression). </normalized-video> 
+      <normalized-audio>Migrate to an open, standardized and well supported audio stream format that is losslessly compressed.</normalized-audio>
     </normalized>
   </long-term-strategy>
 
@@ -60,5 +100,8 @@
       None
     </action>
   </short-term-actions>
+  <footnote>
+    This action plan is currently under discussion and is subject to change.
+  </footnote>
 </action-plan>
 

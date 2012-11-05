@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="TIFF" format-version="5.0">
+    <confidence-level>High: uncompressed, Medium: compressed, Low: in Planar format</confidence-level>
 	<implementation-date>2005.12.01</implementation-date>
-	<revision-date>2010.09.16</revision-date>	
-	<review-date>2009.06</review-date>
-	<next-review>2012.06</next-review>
+	<revision-date>2012.08.01</revision-date>	
+	<review-date>2012.08</review-date>
+	<next-review>2015.08</next-review>
 	<ingest-processing>
 		<identification>
 			Yes
@@ -43,10 +44,10 @@
 		</appearance>
 	</significant-properties>
 	<long-term-strategy>
-		<original>
-			See the long-term preservation strategy for TIFF 6.0 images. TIFF 5.0 images will be treated in 
-			the archive as if they were TIFF 6.0 images because of their similarity. 
-		</original>
+	<original>
+      See the long-term preservation strategy for TIFF 6.0 images. TIFF 5.0 images will be treated in 
+      the archive as if they were TIFF 6.0 images because of their similarity. 
+	</original>
 	</long-term-strategy>
 	<short-term-actions>
 		<action>None</action>
@@ -54,4 +55,7 @@
 	<note>
 		1. InSPECT Project Document, “Significant Properties Testing Report: Raster Images”, March 15, 2009
 	</note>
+    <footnote>
+      This action plan is currently under discussion and is subject to change.
+    </footnote>	
 </action-plan>

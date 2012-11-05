@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="AIFF" format-version="1.3">
+    <confidence-level>High</confidence-level>
 	<implementation-date>TBD</implementation-date>
-	<revision-date>2010.09.16</revision-date>	
+	<revision-date>2012.08.01</revision-date>	
 	<review-date>2007.10.08</review-date>
 	<next-review>2009.10</next-review>
 	<ingest-processing>
@@ -40,7 +41,8 @@
 
 	<long-term-strategy>
 		<original>
-			Migrate to a non-lossy open audio format when one is found is to be a good successor to 			the AIFF format.
+      Migrate to a non-lossy open audio format when one is found is to be a good successor to the AIFF 
+      format.
 		</original>
 	</long-term-strategy>
 
@@ -49,5 +51,11 @@
       		Not applicable
     	</action>
  	</short-term-actions>
+	<note>
+	1. Gareth Knight, Significant Properties Testing Report: Audio Recordings, 12 February 2010 
+	   http://www.significantproperties.org.uk/audio-testingreport.pdf
+	</note>
+    <footnote>
+      This action plan is currently under discussion and is subject to change.
+    </footnote>
 </action-plan>
-

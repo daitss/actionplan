@@ -6,10 +6,11 @@ Added Ingest Processing and Significant Properties sections.
 
 -->
 <action-plan format="XMLDTD" format-version="1.0">
+  <confidence-level>Medium</confidence-level>
   <implementation-date>2003.07.22</implementation-date>
-  <revision-date>2010.09.16</revision-date>
-  <review-date>2008.02.01</review-date>
-  <next-review>2011.02</next-review>
+  <revision-date>2012.08.01</revision-date>
+  <review-date>2012.08.01</review-date>
+  <next-review>2016.08</next-review>
   <ingest-processing>
     <identification>
       Yes, only markup declaration conforming to the plain text identification
@@ -23,17 +24,6 @@ Added Ingest Processing and Significant Properties sections.
       Yes. Extracted technical metadata are described in section 2.2 of XML
       DTD action plan background.
     </characterization>
-    <localization>
-        Yes.  A localized version will be created for a DTD file if it
-        contains at least one named reference to an external file (a
-        'link'), and the reference can be resolved to a physical file
-        using the resolution algorithms described in “Resolving
-        References in Distributed Objects” report, available on the
-        Florida Digital Archive (FDA) website. The format of this
-        version, XML_DTD_NORM_1, are described in a separate FDA
-        report (“A Specification of the XML_DTD_NORM_1 Format”)
-        available on the FDA website.
-    </localization>
     <migration>
       No
     </migration>
@@ -64,9 +54,6 @@ Added Ingest Processing and Significant Properties sections.
       Migrate to a newer version of XML DTD or to a different XML schema language when the
       XML DTD 1.0 format becomes unsupported by XML readers.
     </original>
-    <localized>
-      Same as the original (see 3.1).
-    </localized>
     <normalized>
       N/A
     </normalized>
@@ -77,8 +64,8 @@ Added Ingest Processing and Significant Properties sections.
       N/A
     </action>
   </short-term-actions>
-  <note>
-    This action plan is currently (02/01/08) under discussion and is subject to change.
-  </note>
+  <footnote>
+    This action plan is currently under discussion and is subject to change.
+  </footnote>
 </action-plan>
 

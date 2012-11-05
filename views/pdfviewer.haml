@@ -1,0 +1,10 @@
+%html
+  %head
+  %title
+    PDF Viewer
+  %script{:type => 'text/javascript', :src => '/js/pdfobject.js'}
+
+%object{:data => "#{filename}", :type => "application/pdf", :width => "100%", :height => "52%"}
+  %p 
+    It appears you don't have Adobe Reader or PDF support in this web
+    browser. <a href="http://www.fcla.edu/daitss-test/files/PdfGuideline.pdf">Click here to download the PDF</a></p>

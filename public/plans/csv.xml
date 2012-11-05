@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="CSV">
+  <confidence-level>High</confidence-level>
   <implementation-date>2007.06.29</implementation-date>
-  <revision-date>2010.09.16</revision-date>
-  <review-date>2007.06.29</review-date>
-  <next-review>2010.06</next-review>
+  <revision-date>2012.08.01</revision-date>
+  <review-date>2012.08.01</review-date>
+  <next-review>2017.08</next-review>
   <ingest-processing>
     <identification>
       Yes, by file extensions.
@@ -64,5 +65,8 @@
     1. “From digital volatility to digital permanence, Preserving spreadsheets”, Jacqueline Slats, The Hague,              November 2003,
     http://www.digitaleduurzaamheid.nl/bibliotheek/docs/volatility-permanence-spreadsh-en.pdf
   </note>
+  <footnote>
+    This action plan is currently under discussion and is subject to change.
+  </footnote>
 </action-plan>
 

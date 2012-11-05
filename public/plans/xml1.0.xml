@@ -13,10 +13,11 @@ Added Ingest Processing and Significant Properties sections.
 -->
 
 <action-plan format="Extensible Markup Language" format-version="1.0">
+  <confidence-level>High: includes XSD/XSL/XHTML, etc.; with included or accessible schema and character encoding explicitly specified</confidence-level>
   <implementation-date>2003.06.09</implementation-date>
-  <revision-date>2010.09.16</revision-date>
-  <review-date>2008.02.01</review-date>
-  <next-review>2011.02</next-review>
+  <revision-date>2012.08.01</revision-date>
+  <review-date>2012.08.01</review-date>
+  <next-review>2016.08</next-review>
   <ingest-processing>
     <identification>
       Yes, only documents conforming to the well-formedness rules defined by
@@ -29,16 +30,6 @@ Added Ingest Processing and Significant Properties sections.
       Yes. Extracted technical metadata are described in section 2.2 of XML
       action plan background.
     </characterization>
-    <localization>
-      Yes. A localized version will be created for an XML file if it
-      contains at least one named reference to an external schema and
-      the reference can be resolved to a physical file using the
-      process described in “Resolving References in Distributed
-      Objects”, available on the Florida Digital Archive(FDA)
-      website. The format for this version, 'XML_norm_1', is described
-      in a separate FDA publication (“A Specification of the
-      XML_NORM_1 Format”).
-    </localization>
     <migration>
       No
     </migration>
@@ -46,7 +37,9 @@ Added Ingest Processing and Significant Properties sections.
       No
     </normalization>
     <xmlresolution>
-	  Yes
+	  Yes. An xmlresolution tarball will be created for all XML files in a package if they
+      contain at least one named reference to an external schema/DTD/stylesheet and
+      the reference can be resolved to a physical file.  
     </xmlresolution>
   </ingest-processing>
   <significant-properties>
@@ -77,9 +70,7 @@ Added Ingest Processing and Significant Properties sections.
     <original>
       Migrate to XML 1.1 when XML 1.1 is supported by the FDA.
     </original>
-    <localized>
-      Same as the original.
-    </localized>
+
   </long-term-strategy>
 
   <short-term-actions>
@@ -87,7 +78,7 @@ Added Ingest Processing and Significant Properties sections.
       N/A
     </action>
   </short-term-actions>
-  <note>
-    This action plan is currently (02/01/08) under discussion and is subject to change.
-  </note>
+  <footnote>
+    This action plan is currently under discussion and is subject to change.
+  </footnote>
 </action-plan>

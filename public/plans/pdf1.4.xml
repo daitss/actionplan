@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="PDF" format-version="1.4">
+    <confidence-level>Medium: embedded fonts, Low: encrypted</confidence-level>
 	<implementation-date>2005.12.01</implementation-date>
-	<revision-date>2010.09.16</revision-date>	
-	<review-date>2008.01.07</review-date>
-	<next-review>2012.01</next-review>
+	<revision-date>2012.08.01</revision-date>	
+	<review-date>2012.08.01</review-date>
+	<next-review>2014.08</next-review>
 	<ingest-processing>
 		<identification>
 			Yes
@@ -39,31 +40,24 @@
 	</significant-properties>
 
 	<long-term-strategy>
-		<original>
-			Migrate to newer PDF revisions when the PDF major version number changes (i.e. PDF 2.0) or
-			to a format that shares the essential and distinguishing characteristics of the PDF 1.4
-			specification.
-			
-			A normalized version will be created but not stored for all PDF 1.4 files upon ingestion. The
-			format for this version, 'pdf_norm_1', will consist of a single XML file (the 'index' file) in METS
-			format and separate 24-bit RGB 600dpi uncompressed TIFF 6.0 files for each page of the
-			original PDF. The detailed specifications for the pdf_norm_1 format are described in a separate
-			FDA publication (“Normalization for PDF 1.x Files: A Specification of the PDF_NORM_1
-			Format”) available on the Florida Digital Archive website.
-		</original>
+	<original>
+      Migrate to newer PDF revisions when the PDF major version number changes (i.e. PDF 2.0) or
+      to a format that shares the essential and distinguishing characteristics of the PDF 1.4
+      specification.
+	</original>
 		
-		<normalized>
-		None
-		</normalized>
+	<normalized>
+      None
+	</normalized>
 	</long-term-strategy>
 
  	<short-term-actions>
-    		<action>
-      			Continue to monitor and evaluate the suitability of PDF to PDF/A-1 conversion tool for PDF/A-1 to become the normalized format of PDF 1.4.
-    		</action>
+    	<action>
+      		Continue to monitor and evaluate the suitability of PDF to PDF/A-1 conversion tool for PDF/A-1 to become the normalized format of PDF 1.4.
+    	</action>
  	</short-term-actions>
-	<note>
-	This action plan is currently under discussion and is subject to change.
-</note>
+    <footnote>
+      This action plan is currently under discussion and is subject to change.
+    </footnote>
 </action-plan>
 

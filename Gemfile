@@ -14,3 +14,7 @@ group :test do
   gem "rack-test"
   gem 'ruby-debug'
 end
+
+group :thin do
+  gem "thin"
+end

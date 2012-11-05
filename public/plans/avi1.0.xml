@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<action-plan format="Audio/Video Interleaved Format" format-version="1.0">
+<action-plan format="Audio/Video Interleaved Format">
+  <confidence-level>High: AVI uncompressed motion JPEG, Low: AVI (others)</confidence-level>
   <implementation-date>2005.09.06</implementation-date>
-  <revision-date>2010.09.16</revision-date>
+  <revision-date>2012.08.01</revision-date>
   <review-date>2008.01.07</review-date>
   <next-review>2012.01</next-review>
   <ingest-processing>
@@ -19,7 +20,38 @@
     </migration>
     <normalization>
       Yes
-      <transformation id="avi_norm"/>
+	  <VideoStreams>
+	    Each supported video stream contained in an AVI file will be normalized into a motion JPEG video 
+	    stream which contains a sequence of JPEG images.  The normalized motion JPEG video stream will 
+	    have the same video dimension and playback rate(frames/second) as the original stream.  
+        <stream>
+           <format>CinePak</format>
+           <code>CVID</code>
+           <normalized-stream>Motion JPEG</normalized-stream>
+        </stream>
+       <stream>
+           <format>Motion JPEG</format>
+           <code>MJPG</code>
+           <normalized-stream>Not Applicable</normalized-stream>
+        </stream>
+       <stream>
+           <format>Indeo 3.2</format>
+           <code>IV32</code>
+           <normalized-stream>Motion JPEG</normalized-stream>
+        </stream>
+      </VideoStreams>
+	  <AudioStreams>
+	    Each audio stream in the AVI file will be normalized into an uncompressed PCM (LPCM) audio stream 
+	    with sample size of 16 bits/sample.  The normalized audio stream will have the same sample rate 
+	    (samples/second) as the original one.
+	    The normalized video streams and audio streams will be multiplexed back into an AVI file.
+	    <stream>
+           <format>WAVE LPCM</format>
+           <code>0x0001</code>
+           <normalized-stream>Not Applicable</normalized-stream>
+        </stream>
+	  </AudioStreams>
+      <transformation id="avi_norm"/>	
     </normalization>
   </ingest-processing>
   <significant-properties>
@@ -43,17 +75,18 @@
     <original>
       Migrate to newer AVI versions or to an open, standardized and well supported multimedia file
       format that is to be a good successor for the AVI file format.
+
       No normalized version will be created for AVI 1.0 files. However, each video/audio stream
-      contained in the AVI file will be normalized according to the Action Plan for FDA Supported
-      Video/Audio Stream Formats. If the encoded video/audio stream is not in the list of FDA
+      contained in the AVI file will be normalized according to the normalization section  
+      in the ingest processing. If the encoded video/audio stream is not in the list of 
       supported video/audio stream formats for AVI file format, the video/audio stream will not be
       normalized and it will be preserved as bit-level.
     </original>
 
     <normalized>
-      Not applicable for AVI 1.0 file format. For the normalized video and audio stream formats,
-      please see the Action Plan for FDA Supported Video/Audio Stream Formats.
-
+      Not applicable for AVI 1.0 file format. 
+      <normalized-video>Migrate to an open, standardized and well supported video stream format that does not use interframes  (temporal compression). </normalized-video> 
+      <normalized-audio>Migrate to an open, standardized and well supported audio stream format that is losslessly compressed.</normalized-audio>
     </normalized>
   </long-term-strategy>
 
@@ -62,8 +95,8 @@
       None
     </action>
   </short-term-actions>
-  <note>
+  <footnote>
     This action plan is currently under discussion and is subject to change.
-  </note>
+  </footnote>
 </action-plan>
 

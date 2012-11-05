@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <action-plan format="BIFF8">
+  <confidence-level>Low</confidence-level>
   <implementation-date>TBD</implementation-date>
-  <revision-date>2010.09.16</revision-date>
-  <review-date>2008.03.05</review-date>
-  <next-review>2010.04</next-review>
+  <revision-date>2012.08.01</revision-date>
+  <review-date>2012.08.01</review-date>
+  <next-review>2016.08</next-review>
   <ingest-processing>
     <identification>
       Yes, BIFF8 files will be identified using magic number, which is described
@@ -77,7 +78,7 @@
       One of the possible tool is Open XML/ODF Translator command line software.
     </action>
   </short-term-actions>
-  <note>
-    This action plan is currently (03/4/08) under discussion and is subject to change.
-  </note>
+  <footnote>
+    This action plan is currently under discussion and is subject to change.
+  </footnote>
 </action-plan>
