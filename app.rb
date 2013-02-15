@@ -137,8 +137,8 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
   format_version =  doc.find_first('//p:format/p:formatDesignation/p:formatVersion', NS_MAP).content rescue nil
   @codec = doc.find_first('//p:objectCharacteristicsExtension/aes:audioObject/aes:audioDataEncoding', NS_MAP).content.split.first rescue nil
 
-  # find the action plan
-  potential_plans = ActionPlan::PLANS.select { |p| p.format == format }
+  # find the action plan(s)
+  potential_plans = ActionPlan::PLANS.select { |p|  format.include? p.format }
   not_found "action plan for #{format} not found" if potential_plans.empty?
  
   if format_version
