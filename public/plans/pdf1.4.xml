@@ -19,7 +19,8 @@
 			No
 		</migration>
 		<normalization>
-			No
+			Yes, PDF 1.4 would be converted into PDF/A-1b.
+			<transformation id="pdf_norm"/>
 		</normalization>
 	</ingest-processing>
 	<significant-properties>

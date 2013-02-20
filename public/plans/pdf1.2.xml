@@ -19,7 +19,8 @@
 			No
 		</migration>
 		<normalization>
-			No
+			Yes, PDF 1.2 would be converted into PDF/A-1b.
+			<transformation id="pdf_norm"/>
 		</normalization>
 	</ingest-processing>
 	<significant-properties>
@@ -52,10 +53,10 @@
 	</long-term-strategy>
 
  	<short-term-actions>
-    		<action>
+    	<action>
       		Continue to monitor and evaluate the suitability of PDF to PDF/A-1 conversion tool for 
             PDF/A-1 to become the normalized format of PDF 1.2.
-    		</action>
+    	</action>
  	</short-term-actions>
 	<footnote>
 	This action plan is currently under discussion and is subject to change.
