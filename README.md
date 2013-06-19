@@ -18,6 +18,10 @@ avi file with Motion JPEG video and PCM audio encoding.  The AVI format action p
 to normalize avi files according to the defined "avi_norm" transformation identifier.  The avi_norm shall be 
 a defined transformation in the DAITSS Transformation Service to carry out the actual format transformation.
 
+ 
+Current  Production code
+------------------------
+git commit sha1 - 6c7c106f63b293a3bcf174b9a682803c47f74a26
 
 Requirements
 ------------
