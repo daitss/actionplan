@@ -21,7 +21,7 @@ a defined transformation in the DAITSS Transformation Service to carry out the a
  
 Current  Production Code
 ------------------------
-* https://github.com/daitss/actionplan/tree/6c7c106f63b293a3bcf174b9a682803c47f74a26
+* Release 2.0.0, https://github.com/daitss/actionplan/releases/tag/v2.0.0
 
 Requirements
 ------------
