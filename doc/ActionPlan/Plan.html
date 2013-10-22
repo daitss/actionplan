@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class ActionPlan::Plan - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/actionplan.rb
+    <li>lib/bg_report.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-bg_report">#bg_report</a>
+    
+    <li><a href="#method-i-confidence_level">#confidence_level</a>
+    
+    <li><a href="#method-i-format">#format</a>
+    
+    <li><a href="#method-i-format_version">#format_version</a>
+    
+    <li><a href="#method-i-implementation_date">#implementation_date</a>
+    
+    <li><a href="#method-i-migration">#migration</a>
+    
+    <li><a href="#method-i-next_review">#next_review</a>
+    
+    <li><a href="#method-i-normalization">#normalization</a>
+    
+    <li><a href="#method-i-release_date">#release_date</a>
+    
+    <li><a href="#method-i-review_date">#review_date</a>
+    
+    <li><a href="#method-i-revision_date">#revision_date</a>
+    
+    <li><a href="#method-i-set_bg_report">#set_bg_report</a>
+    
+    <li><a href="#method-i-to_html">#to_html</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
+    <li><a href="#method-i-to_xml">#to_xml</a>
+    
+    <li><a href="#method-i-xmlresolution">#xmlresolution</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ActionPlan.html">ActionPlan</a>
+  
+    <li><a href="../ActionPlan/Plan.html">ActionPlan::Plan</a>
+  
+    <li><a href="../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class ActionPlan::Plan</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(source)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-ivar">@xml_doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Parser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">source</span>).<span class="ruby-identifier">parse</span>
+  <span class="ruby-identifier">dtd_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-string">'..'</span>, <span class="ruby-string">'public'</span>, <span class="ruby-string">'dtd'</span>, <span class="ruby-string">'actionplan.dtd'</span>
+  <span class="ruby-identifier">dtd</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">dtd_file</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Dtd</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">read</span> }
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">'invalid'</span> <span class="ruby-keyword">unless</span>  <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">validate</span>(<span class="ruby-identifier">dtd</span>)
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-bg_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bg_report</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bg_report-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bg_report</span>
+  <span class="ruby-ivar">@bg_report</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bg_report-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bg_report-method -->
+
+    
+      <div id="method-i-confidence_level" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">confidence_level</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="confidence_level-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">confidence_level</span>
+  <span class="ruby-identifier">node</span>= <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/confidence-level'</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">content</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- confidence_level-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- confidence_level-method -->
+
+    
+      <div id="method-i-format" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/@format'</span>).<span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format-method -->
+
+    
+      <div id="method-i-format_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_version</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_version-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_version</span>
+  <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/@format-version'</span>)
+  <span class="ruby-identifier">n</span>.<span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_version-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_version-method -->
+
+    
+      <div id="method-i-implementation_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">implementation_date</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="implementation_date-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">implementation_date</span>
+  <span class="ruby-identifier">node</span>= <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/implementation-date'</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">content</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- implementation_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- implementation_date-method -->
+
+    
+      <div id="method-i-migration" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">migration</span><span
+            class="method-args">(codec=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="migration-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">migration</span> <span class="ruby-identifier">codec</span>=<span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">xpath</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">codec</span>
+            <span class="ruby-node">%Q{//migration/transformation[@codec=&quot;#{codec}&quot;]/@id}</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-string">'//migration/transformation[not(@codec)]/@id'</span>
+          <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span> <span class="ruby-identifier">xpath</span>
+  <span class="ruby-identifier">n</span>.<span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- migration-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- migration-method -->
+
+    
+      <div id="method-i-next_review" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next_review</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="next_review-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">next_review</span>
+  <span class="ruby-identifier">node</span> = <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/next-review'</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">content</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- next_review-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- next_review-method -->
+
+    
+      <div id="method-i-normalization" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalization</span><span
+            class="method-args">(codec=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="normalization-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalization</span> <span class="ruby-identifier">codec</span>=<span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">xpath</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">codec</span>
+            <span class="ruby-node">%Q{//normalization/transformation[@codec=&quot;#{codec}&quot;]/@id}</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-string">'//normalization/transformation[not(@codec)]/@id'</span>
+          <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span> <span class="ruby-identifier">xpath</span>
+  <span class="ruby-identifier">n</span>.<span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- normalization-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- normalization-method -->
+
+    
+      <div id="method-i-release_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_date</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="release_date-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_date</span>
+  <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span> <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/release-date'</span>).<span class="ruby-identifier">content</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- release_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- release_date-method -->
+
+    
+      <div id="method-i-review_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">review_date</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="review_date-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">review_date</span>
+  <span class="ruby-identifier">node</span>= <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/review-date'</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">content</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- review_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- review_date-method -->
+
+    
+      <div id="method-i-revision_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revision_date</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="revision_date-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revision_date</span>
+  <span class="ruby-identifier">node</span> = <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">'/action-plan/revision-date'</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">content</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- revision_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- revision_date-method -->
+
+    
+      <div id="method-i-set_bg_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_bg_report</span><span
+            class="method-args">(action_plan_file)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>set the path of the background report for this action plan</p>
+          
+
+          
+          <div class="method-source-code" id="set_bg_report-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_bg_report</span> <span class="ruby-identifier">action_plan_file</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">action_plan_file</span>, <span class="ruby-string">&quot;.xml&quot;</span>)
+  <span class="ruby-ivar">@bg_report</span> = <span class="ruby-node">&quot;/bg_reports/#{filename}.pdf&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- set_bg_report-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- set_bg_report-method -->
+
+    
+      <div id="method-i-to_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_html</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_html-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_html</span>
+  <span class="ruby-identifier">stylesheet_doc</span> = <span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;public/xsl/to_html.xsl&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span> <span class="ruby-constant">LibXML</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span><span class="ruby-operator">::</span><span class="ruby-identifier">io</span> <span class="ruby-identifier">io</span> }
+  <span class="ruby-identifier">stylesheet</span> = <span class="ruby-constant">LibXSLT</span><span class="ruby-operator">::</span><span class="ruby-constant">XSLT</span><span class="ruby-operator">::</span><span class="ruby-constant">Stylesheet</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">stylesheet_doc</span>
+  <span class="ruby-comment"># apply the xslt</span>
+  <span class="ruby-identifier">stylesheet</span>.<span class="ruby-identifier">apply</span>(<span class="ruby-ivar">@xml_doc</span>).<span class="ruby-identifier">to_s</span>
+  
+    <span class="ruby-comment">#$action_plan_to_html.apply(@xml_doc).to_s</span>
+      <span class="ruby-keyword">end</span></pre>
+          </div><!-- to_html-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_html-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-constant">CGI</span><span class="ruby-operator">::</span><span class="ruby-identifier">escape</span> <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+      <div id="method-i-to_xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_xml</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_xml-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_xml</span>
+  <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_xml-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_xml-method -->
+
+    
+      <div id="method-i-xmlresolution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xmlresolution</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xmlresolution-source">
+            <pre><span class="ruby-comment"># File lib/actionplan.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xmlresolution</span>
+  <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@xml_doc</span>.<span class="ruby-identifier">find_first</span> <span class="ruby-string">'//xmlresolution'</span>
+  <span class="ruby-identifier">n</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">strip</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- xmlresolution-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- xmlresolution-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
