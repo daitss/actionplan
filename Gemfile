@@ -7,12 +7,12 @@ gem "thin"
 gem "datyl", :git => "git://github.com/daitss/datyl.git"
 gem "log4r"
 gem "libxml-ruby"
-gem "libxslt-ruby", "<=1.0.1", :require => 'libxslt'
+gem "libxslt-ruby", "~>1.1.0"
 
 group :test do
   gem "rspec"
   gem "rack-test"
-  gem 'ruby-debug'
+  gem 'debugger'
 end
 
 group :thin do
