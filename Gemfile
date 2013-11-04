@@ -7,7 +7,7 @@ gem "thin"
 gem "datyl", :git => "git://github.com/daitss/datyl.git"
 gem "log4r"
 gem "libxml-ruby"
-gem "libxslt-ruby", "~>1.1.0"
+gem "nokogiri"
 
 group :test do
   gem "rspec"
