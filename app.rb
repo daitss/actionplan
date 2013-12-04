@@ -92,9 +92,13 @@ get '/actionplan/:format/:format_version' do |format, format_version|
       plans = plans.select {|p| p.format_version == format_version}
     end
     plan = plans.first
-    plan.to_html
-  rescue => e
-    error 400, e.message
+    unless plan.nil?
+      plan.to_html
+    else
+      halt 404, "Not Found"  
+    end
+    rescue => e
+    error 500, e.message
   end
 end
 
@@ -103,9 +107,13 @@ get '/actionplan/:format/' do |format|
   begin
     plans = ActionPlan::PLANS.select { |p| p.format == CGI::unescape(CGI::unescape(format)) }
     plan = plans.first
-    plan.to_html
+    unless plan.nil?
+      plan.to_html
+    else
+      halt 404, "Not Found"
+    end
   rescue => e
-    error 400, e.message
+    error 500, e.message
   end 
 end
 
