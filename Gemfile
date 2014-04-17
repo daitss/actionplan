@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+ruby '1.9.3'
 gem "nokogiri", "~> 1.5.10"
 gem "sinatra"
 gem "json"
@@ -13,8 +14,4 @@ group :test do
   gem "rspec"
   gem "rack-test"
   gem 'debugger'
-end
-
-group :thin do
-  gem "thin"
 end
