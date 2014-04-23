@@ -28,11 +28,6 @@ task :darchive do
     sh "cap deploy -S target=darchive.fcla.edu:/opt/web-services/sites/actionplan -S who=#{user}:#{user}"
 end
 
-desc "deploy to development site (actionplan.retsina.fcla.edu)"
-task :retsina do
-    sh "cap deploy -S target=retsina.fcla.edu:/opt/web-services/sites/actionplan -S who=daitss:daitss"
-end
-
 desc "deploy to development site (actionplan.marsala.fcla.edu)"
 task :marsala do
 	    sh "cap deploy -S target=marsala.fcla.edu:/opt/web-services/sites/actionplan -S who=#{user}:#{user}"
@@ -41,7 +36,7 @@ end
 
 desc "deploy to ripple's test site (actionplan.ripple.fcla.edu)"
 task :ripple do
-    sh "cap deploy -S target=ripple.fcla.edu:/opt/web-services/sites/actionplan -S who=#{user}:#{user}"
+    sh "cap deploy -S target=ripple.fcla.edu:/opt/web-services/sites/actionplan -S who=#{user}:#{user} branch=ruby1.9.3"
 end
 
 desc "deploy to tarchive's coop (actionplan.tarchive.fcla.edu?)"

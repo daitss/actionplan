@@ -1,5 +1,5 @@
 require 'libxml'
-require 'libxslt'
+require 'nokogiri'
 
 include LibXML
 
@@ -71,10 +71,10 @@ module ActionPlan
     end
 
     def to_html
-      stylesheet_doc = open("public/xsl/to_html.xsl") { |io| LibXML::XML::Document::io io }
-      stylesheet = LibXSLT::XSLT::Stylesheet.new stylesheet_doc
+      xml = Nokogiri::XML @xml_doc.to_s
+      stylesheet =  Nokogiri::XSLT(File.read("public/xsl/to_html.xsl"))
       # apply the xslt
-      stylesheet.apply(@xml_doc).to_s
+      stylesheet.transform(xml).to_s
       
     	#$action_plan_to_html.apply(@xml_doc).to_s
 	  end

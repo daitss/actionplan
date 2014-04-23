@@ -1,0 +1,15 @@
+1. Gemfile
+   - Change gem "libxslt-ruby", "<=1.0.1" 
+     to
+     gem "libxslt-ruby", "~>1.1.0"
+   - ruby-debug is deprecated in 1.9.  Change gem ruby-debug
+     to 
+     gem debugger
+
+2. Config.ru
+   - Ruby 1.9 remove current directory from load path, http://stackoverflow.com/questions/9750610/ruby-require-error-cannot-load-such-file.
+     Change require 'app'
+     to
+     require './app'
+
+
