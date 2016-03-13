@@ -76,7 +76,7 @@ get '/' do
 end
 
 NS_MAP = {
-  'p' => 'info:lc/xmlns/premis-v2',
+  'p' => 'http://www.loc.gov/premis/v3',
   'aes' => 'http://www.aes.org/audioObject'
 }
 
