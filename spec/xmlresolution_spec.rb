@@ -6,7 +6,7 @@ describe "/xmlresolution" do
 
     premis_object =<<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-      <object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+      <object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
         <objectIdentifier>
           <objectIdentifierType>URI</objectIdentifierType>
           <objectIdentifierValue>test:/3dccd630-fe28-012c-8021-001b63b4d6a3/file/1</objectIdentifierValue>
@@ -61,7 +61,7 @@ describe "/xmlresolution" do
 
     premis_object =<<-PDF
 <?xml version="1.0" encoding="UTF-8"?>
-      <object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+      <object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
         <objectIdentifier>
           <objectIdentifierType>URI</objectIdentifierType>
           <objectIdentifierValue>test:/3dccd630-fe28-012c-8021-001b63b4d6a3/file/0</objectIdentifierValue>

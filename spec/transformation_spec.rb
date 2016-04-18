@@ -22,7 +22,7 @@ shared_examples_for "any transformation" do
 
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
   <objectIdentifier>
     <objectIdentifierType>URI</objectIdentifierType>
     <objectIdentifierValue>sha1:7ac8b064b38fe4d42f1b04ea45e43f71</objectIdentifierValue>
@@ -53,7 +53,7 @@ shared_examples_for "any transformation" do
 
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
   <objectIdentifier>
     <objectIdentifierType>URI</objectIdentifierType>
     <objectIdentifierValue>sha1:7ac8b064b38fe4d42f1b04ea45e43f71</objectIdentifierValue>
@@ -89,7 +89,7 @@ shared_examples_for "any transformation" do
 
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
   <objectIdentifier>
     <objectIdentifierType>URI</objectIdentifierType>
     <objectIdentifierValue>sha1:7ac8b064b38fe4d42f1b04ea45e43f71</objectIdentifierValue>
@@ -119,7 +119,7 @@ shared_examples_for "any transformation" do
 
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
   <objectIdentifier>
     <objectIdentifierType>URI</objectIdentifierType>
     <objectIdentifierValue>sha1:7ac8b064b38fe4d42f1b04ea45e43f71</objectIdentifierValue>
@@ -166,7 +166,7 @@ describe "/normalization" do
   it "should return wave_norm transformation and actionplan info for wave" do
     premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
   <objectIdentifier>
     <objectIdentifierType>URI</objectIdentifierType>
     <objectIdentifierValue>sha1:7ac8b064b38fe4d42f1b04ea45e43f71</objectIdentifierValue>
@@ -207,7 +207,7 @@ describe "/normalization" do
    it "should return mov_norm transformation and actionplan info for mov" do
       premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
 		<objectIdentifier>
 		<objectIdentifierType>URI</objectIdentifierType>
 		<objectIdentifierValue>http://www.fcla.edu/daitss-test/files/thesis.mov</objectIdentifierValue>
@@ -255,7 +255,7 @@ describe "/normalization" do
        it "should return avi_norm transformation and actionplan info for avi" do
           premis_object = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
-<object xmlns="info:lc/xmlns/premis-v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
+<object xmlns="http://www.loc.gov/premis/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="file">
 	<objectIdentifier>
 	<objectIdentifierType>URI</objectIdentifierType>
 	<objectIdentifierValue>http://www.fcla.edu/daitss-test/files/video.avi</objectIdentifierValue>

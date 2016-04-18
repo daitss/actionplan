@@ -6,7 +6,7 @@ RSpec::Matchers.define :have_xpath do |xpath|
   
   match do |resp|
     doc = XML::Document.string resp.body
-    doc.root.find_first xpath, 'p' => 'info:lc/xmlns/premis-v2', 'aes' => 'http://www.aes.org/audioObject'
+    doc.root.find_first xpath, 'p' => 'http://www.loc.gov/premis/v3', 'aes' => 'http://www.aes.org/audioObject'
   end
   
   failure_message_for_should do |resp|
