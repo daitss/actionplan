@@ -149,23 +149,30 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
                      end
 
   # object format info
-  format = doc.find_first('//p:format/p:formatDesignation/p:formatName', NS_MAP).content rescue nil
-  format_version =  doc.find_first('//p:format/p:formatDesignation/p:formatVersion', NS_MAP).content rescue nil
-  @codec = doc.find_first('//p:objectCharacteristicsExtension/aes:audioObject/aes:audioDataEncoding', NS_MAP).content.split.first rescue nil
+  found_plan = false
+  formats = doc.find('//p:format/p:formatDesignation', NS_MAP) rescue nil
+  
+  formats.each do |format|
 
-  # find the action plan(s)
-  potential_plans = ActionPlan::PLANS.select { |p|  format.include? p.format }
-  not_found "action plan for #{format} not found" if potential_plans.empty?
- 
-  if format_version
-    potential_plans.reject! { |p| p.format_version != format_version }
-    not_found "action plan for #{format} #{format_version} not found" if potential_plans.empty?
-  else
-    potential_plans.reject! { |p| p.format_version }
-    not_found "action plan for #{format} not found" if potential_plans.empty?
+    format_name = format.find_first('p:formatName', NS_MAP).content rescue nil
+    format_version =  format.find_first('p:formatVersion', NS_MAP).content rescue nil
+
+
+    # find the action plan(s)
+    potential_plans = ActionPlan::PLANS.select { |p|  format_name.include? p.format }
+    next if potential_plans.empty?
+    found_plan = true
+    if format_version
+      potential_plans.reject! { |p| p.format_version != format_version }
+      not_found "action plan for #{format} #{format_version} not found" if potential_plans.empty?
+    else
+      potential_plans.reject! { |p| p.format_version }
+      not_found "action plan for #{format} not found" if potential_plans.empty?
+    end
+    @plan = potential_plans.first
   end
-
-  @plan = potential_plans.first
+  
+  not_found "action plan not found" unless found_plan
 
   case type
 
@@ -173,6 +180,7 @@ post %r{/(migration|normalization|xmlresolution)} do |type|
     not_found unless @plan.xmlresolution
 
   else
+    @codec = doc.find_first('//p:objectCharacteristicsExtension/aes:audioObject/aes:audioDataEncoding', NS_MAP).content.split.first rescue nil
     @event_id_type = params['event-id-type'] or error 400, 'event-id-type is required'
     @event_id_value = params['event-id-value'] or error 400, 'event-id-value is required'
     @xform_type = type
